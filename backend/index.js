@@ -6,7 +6,7 @@ const port = process.env.PORT || 3700;
 
 mongoose.set('strictQuery', true);
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://0.0.0.0:27017')
+mongoose.connect(process.env.MONGODB_URI)
         .then(() =>{
             console.log("Conexión exitosa a la base de datos de Econt...");
 
