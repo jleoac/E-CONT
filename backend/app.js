@@ -35,6 +35,13 @@ app.use('/api', project_routes3);
 app.use('/api', project_routes4);
 app.use('/api', project_routes5);
 
+// Ruta raíz para verificar que todo funcione (importante para Railway)
+app.get('/', (req, res) => {
+    res.status(200).send(
+        "<h1>✅ API de Econt funcionando correctamente</h1>"
+    );
+});
+
 /*app.get('/', (req, res) => {
     res.status(200).send(
         "<h1>Página de inicio</h1>"
