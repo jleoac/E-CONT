@@ -1,0 +1,31 @@
+<div id="title">
+  <h1>{{ title }}</h1>
+
+  <article class="about">
+    <h2>Usuarios del Sistema</h2>
+    <p></p>
+  </article>
+
+  <table>
+  <thead>
+    <tr>
+        <th>Fecha y hora de creación de usuario</th>
+        <th>Correo Electrónico</th>
+        <th>Contraseña</th>
+        <th>Acciones</th> <!-- NUEVA COLUMNA -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let newAdmin of admin" class="buzon">
+        <td>{{ newAdmin.fecha_usuario | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td>{{ newAdmin.email }}</td>
+        <td>{{ newAdmin.password }}</td>
+        <td>
+            <button (click)="deleteAdmin(newAdmin._id)">Borrar</button>
+        </td>
+       
+    </tr>
+  </tbody>
+  </table>
+</div>
+

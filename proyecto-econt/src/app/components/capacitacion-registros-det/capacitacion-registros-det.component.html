@@ -1,0 +1,47 @@
+<div id="title">
+  <h1>{{ title }}</h1>
+
+  <article class="about">
+    <h2>Registrados en capacitaciones</h2>
+    <p></p>
+  </article>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tema</th>
+        <th>Fecha inicio de Curso</th>
+        <th>Fecha fin de Curso</th>
+        <th>Nombre</th>
+        <th>Identificación</th>
+        <th>Fecha de nacimiento</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Fecha y hora de inscripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let newRegister of register" class="register">
+        <td>{{ newRegister.topic }}</td>
+        <td>{{ newRegister.start_date | addDay | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ newRegister.end_date | addDay | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          {{ newRegister.name | slice:0:50 }}{{ newRegister.name.length > 50 ? '...' : '' }}
+        </td>
+        <td>{{ newRegister.cedula }}</td>
+        <td>{{ newRegister.birthdate | addDay | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ newRegister.mail }}</td>
+        <td>
+          {{ newRegister.fone | slice:0:30 }}{{ newRegister.fone.length > 30 ? '...' : '' }}
+        </td>
+        <td>{{ newRegister.fecha_inscripcion | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td>
+          <button (click)="deleteRegister(newRegister._id)">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="exportarExcel()">Exportar a Excel</button>
+</div>

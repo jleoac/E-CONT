@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Capacitaciones</h2>
+    <ul>
+        <li *ngFor="let newProject of projects" class="project">
+            <a [routerLink]="['/capacitacion-detalle', newProject._id]" (click)="scrollToTop()">
+                <div class="image">
+                    <img src="{{url+'get-image/'+newProject.image}}" *ngIf="newProject.image" />
+                </div>
+
+                <h3>{{newProject.topic | slice:0:30 }}{{ newProject.topic.length > 30 ? '...' : '' }}</h3>
+                <p>{{newProject.start_date}}</p>
+                <p>{{newProject.end_date}}</p>
+                <p>{{newProject.coach | slice:0:30 }}{{ newProject.coach.length > 30 ? '...' : '' }}</p>
+            </a>
+        </li>
+    </ul>
+</div>

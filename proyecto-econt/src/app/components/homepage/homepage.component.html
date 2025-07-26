@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-CONT</title>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="assets/img/icon_econt.png">
+    
+</head>
+<!--
+<div id="slider">
+  <div class="galeria">
+    <div><img src="assets/img/hojas.jpg" title="Coffee 1" /></div>
+    <div><img src="assets/img/estadosFinancieros.jpg" title="Coffee 2" /></div>
+    <div><img src="assets/img/cielo.jpg" title="Coffee 3" /></div>
+  </div>
+</div>
+-->
+
+<!--La siguiente linea hace que salgan los sliders carrusel en todas las ventanas de la página, la idea es que solo salga en la ventana inicial-->
+<div class="carousel-item">
+  <app-carousel 
+    [images]="images"
+    [autoSlide]="true"
+  ></app-carousel>
+</div>
+
+<!-- Pestaña flotante visible en pantallas pequeñas -->
+<div class="pestana-toggle" (click)="togglePanel()">☰</div>
+
+<div class="contenedorPrincipal" [class.abierto]="panelAbierto">
+  <div class="contenedorFormulario">
+    <div class="pedidoDatosCliente">
+      <div class="ingresoDatosCliente">
+        <div class="formularioEncabezado">
+          <h2 class="subtitulo">
+            Solicita información personalizada o envíanos tus sugerencias
+          </h2>
+        </div>
+        <!-- Mensajes de estado -->
+      <div *ngIf="status === 'success'" class="status-message success">
+        Envío exitoso,<br>
+        nos contactaremos con usted en un momento <br>
+        para remitirle nuestra respuesta
+      </div>
+      <div *ngIf="status === 'failed'" class="status-message error">
+        No se pudo completar el envío.
+      </div>
+        <!-- Formulario -->
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="buzon-form">
+          <div class="form-group-1">
+            <label for="name">Nombres y Apellidos</label>
+            <input type="text" id="name" formControlName="name" />
+            <div class="form-error" *ngIf="form.get('name')?.touched">
+              <span *ngIf="form.get('name')?.errors?.['required']">Campo obligatorio</span>
+              <span *ngIf="form.get('name')?.errors?.['pattern']">Solo letras, mínimo 5 caracteres</span>
+            </div>
+          </div>
+          <div class="form-group-1">
+            <label for="mail">Correo Electrónico</label>
+            <input type="email" id="mail" formControlName="mail" />
+            <div class="form-error" *ngIf="form.get('mail')?.touched">
+              <span *ngIf="form.get('mail')?.errors?.['required']">Campo obligatorio</span>
+              <span *ngIf="form.get('mail')?.errors?.['email']">Formato inválido</span>
+            </div>
+          </div>
+
+          <div class="form-group-1">
+            <label for="fone">Número Telefónico</label>
+            <input type="text" id="fone" formControlName="fone" />
+            <div class="form-error" *ngIf="form.get('fone')?.touched">
+              <span *ngIf="form.get('fone')?.errors?.['required']">Campo obligatorio</span>
+              <span *ngIf="form.get('fone')?.errors?.['pattern']">Debe tener al menos 7 dígitos</span>
+            </div>
+          </div>
+
+          <div class="form-group-1">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" formControlName="mensaje"></textarea>
+            <div class="form-error" *ngIf="form.get('mensaje')?.touched">
+              <span *ngIf="form.get('mensaje')?.errors?.['required']">Campo obligatorio</span>
+              <span *ngIf="form.get('mensaje')?.errors?.['pattern']">Debe tener al menos 15 caracteres</span>
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="form.invalid" class="btn-submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

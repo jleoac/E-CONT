@@ -1,0 +1,39 @@
+<div class="live-courses-container">
+  <h2 class="section-title">Capacitaciones</h2>
+
+  <ul class="course-list">
+    <li *ngFor="let newProject of projects" class="course-card">
+      <a
+        class="course-link"
+        [routerLink]="[
+          '/cursos-registro',
+          newProject.topic,
+          newProject.start_date,
+          newProject.end_date,
+          newProject.description,
+          newProject.coach,
+          newProject.image
+        ]"
+        (click)="scrollToTop()"
+      >
+        <div class="course-image" *ngIf="newProject.image">
+          <img
+            [src]="url + 'get-image/' + newProject.image"
+            [alt]="'Imagen del curso ' + newProject.topic"
+          />
+        </div>
+
+        <div class="course-info">
+          <h3 class="course-title">
+            {{ newProject.topic | slice: 0:30 }}{{ newProject.topic.length > 30 ? '...' : '' }}
+          </h3>
+          <p class="course-dates">
+            <strong>Inicio:</strong> {{ newProject.start_date }} <br />
+            <strong>Fin:</strong> {{ newProject.end_date }}
+          </p>
+          <p class="course-coach"><strong>Facilitador:</strong> {{ newProject.coach }}</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

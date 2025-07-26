@@ -1,0 +1,36 @@
+<div id="title">
+  <h1>{{ title }}</h1>
+
+  <article class="about">
+    <h2>Buzón de Mensajes</h2>
+    <p></p>
+  </article>
+
+  <table>
+  <thead>
+    <tr>
+        <th>Fecha y hora de mensaje</th>
+        <th>Nombres y Apellidos</th>
+        <th>Correo Electrónico</th>
+        <th>Número Telefónico</th>
+        <th>Mensaje</th>
+        <th>Acciones</th> <!-- NUEVA COLUMNA -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let newBuzon of buzon" class="buzon">
+        <td>{{ newBuzon.fecha_mensaje | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td>{{ newBuzon.name }}</td>
+        <td>{{ newBuzon.mail }}</td>
+        <td>{{ newBuzon.fone }}</td>
+        <td>
+            {{ newBuzon.mensaje | slice:0:1000 }}{{ newBuzon.mensaje.length > 1000 ? '...' : '' }}
+        </td>
+        <td>
+            <button (click)="deleteBuzon(newBuzon._id)">Borrar</button>
+        </td>
+    </tr>
+  </tbody>
+  </table>
+  <button (click)="exportarExcel()">Exportar a Excel</button>
+</div>

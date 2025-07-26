@@ -1,0 +1,74 @@
+<div class="container">
+    <h2>{{title}}</h2>
+<!---->
+    <div class="message success" *ngIf="status == 'success'">
+        La capacitación se ha creado correctamente, puedes <a [routerLink]=
+        "['/capacitacion-detalle', save_project._id]">verlo aquí</a>
+    </div>
+
+    <div class="message failed" *ngIf="status == 'failed'">
+        La capacitación no se ha podido crear
+    </div>
+
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+        <p>
+            <label for="topic">Nombre de Capacitación</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="newProject.topic" required />
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                El nombre de la capacitación es obligatorio
+            </span>
+        </p>
+
+        <p> 
+            <label for="description">Descripción Capacitación</label>
+            <small class="nota">Para resaltar un texto usar strong, Ej: &lt;strong&gt;Texto en negrita&lt;/strong&gt;</small>
+            <textarea name="description" #description="ngModel" [(ngModel)]="newProject.description" required></textarea>
+            <span class="form_error" *ngIf="description.touched && !description.valid">
+                La descripción de la capacitación es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="start_date">Fecha Inicio Capacitación</label>
+            <input type="date" name="start_date" #start_date="ngModel" [(ngModel)]="newProject.start_date" />
+            <span class="form_error" *ngIf="start_date.touched && !start_date.valid">
+                La fecha de inicio es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="end_date">Fecha Fin Capacitación</label>
+            <input type="date" name="end_date" #end_date="ngModel" [(ngModel)]="newProject.end_date" />
+            <span class="form_error" *ngIf="end_date.touched && !end_date.valid">
+                La fecha de fin es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="coach">Capacitador/a</label>
+            <input type="text" name="coach" #coach="ngModel" [(ngModel)]="newProject.coach" required />
+            <span class="form_error" *ngIf="coach.touched && !coach.valid">
+                El coaching o capacitador es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="image">Imágen del proyecto</label>
+            <span class="image" *ngIf="newProject.image" style="float: none;">
+                <img src="{{url+'get-image/'+newProject.image}}" style="width: 100px; height: 100px;" *ngIf="newProject.image" />
+            </span><br/>
+            <input type="file" name="image" placeholder="Subir imagen" (change)="
+            fileChangeEvent($event)"/>
+        </p>
+
+        <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid" />
+    </form>
+</div>
+
+<!--public _id: string,
+public name: string,
+public description: string,
+public category: string,
+public year: number,
+public coach: string,
+public image: string*/-->

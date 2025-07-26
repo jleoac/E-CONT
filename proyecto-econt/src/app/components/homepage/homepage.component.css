@@ -1,0 +1,123 @@
+.contenedorPrincipal {
+    background-color: rgba(26, 56, 66, 0.86);
+    bottom: 0;
+    height: -moz-fit-content;
+    height: fit-content;
+    min-height: 100%;
+    padding-bottom: 25px;
+    padding-top: calc(var(--navegacion-alto) + 25px);
+    padding-right: 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.subtitulo {
+    color: beige;
+    margin-top: 90px;
+    margin-left: 40px;
+    white-space: normal;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.contenedorFormulario {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.formularioEncabezado {
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 200px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 70%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: rgba(53, 103, 164, 0.8);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(255, 104, 8, 0.8);
+}
+
+
+/*RESPONSIVE*/
+
+/*Desde la anchura 0px hasta la anchura 888px de la pantalla
+se ejecutarán estos estilos*/
+@media (max-width: 1222px) {
+  .contenedorPrincipal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 600px;
+    max-width: 30%;
+    height: 100%;
+    background-color: rgba(26, 56, 66, 0.86);
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(100%); /* oculto sin empujar layout */
+    transition: transform 0.3s ease;
+  }
+
+  .contenedorPrincipal.abierto {
+    transform: translateX(0);
+  }
+
+  .pestana-toggle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #1a3842;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .subtitulo {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1222px) {
+  .pestana-toggle {
+    display: none !important;
+  }
+}

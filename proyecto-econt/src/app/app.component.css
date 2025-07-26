@@ -1,0 +1,107 @@
+.btn-wsp {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    bottom: 30px;
+    right: 30px;
+    background: #0df053;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 50px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    transition: background 300ms ease, color 300ms ease;
+}
+
+.btn-wsp:hover{
+    text-decoration: none;
+    color: #0df053;
+    background: #fff;
+    font-size: 55px;
+    width: 77px;
+    height: 77px;
+    line-height: 75px;
+    transition: all 300ms ease;
+}
+
+@media only screen and (min-width:320px) and (max-width:768px){
+    .btn-wsp{
+        width:63px;
+        height:63px;
+        line-height: 66px;
+	}
+}
+
+/*Lo siguiente es para que aparezca el ícono de whatsapp con la carpeta font*/
+@font-face {
+    font-family: 'fontello';
+    src: url('../app/font/fontello.eot?1107174');
+    src: url('../app/font/fontello.eot?1107174#iefix') format('embedded-opentype'),
+         url('../app/font/fontello.woff2?1107174') format('woff2'),
+         url('../app/font/fontello.woff?1107174') format('woff'),
+         url('../app/font/fontello.ttf?1107174') format('truetype'),
+         url('../app/font/fontello.svg?1107174#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+  /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+  /*
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+      font-family: 'fontello';
+      src: url('../font/fontello.svg?1107174#fontello') format('svg');
+    }
+  }
+  */
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak-as: never;
+  
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+  
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+  
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+  
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+  
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+  
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+  
+  .icon-whatsapp:before { content: '\f232'; } /* '' */
+
+
+/* Responsive hasta 768px */
+@media screen and (max-width: 768px) {
+    .btn-wsp {
+        width: 63px;
+        height: 63px;
+        line-height: 63px;
+        font-size: 44px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

@@ -1,0 +1,82 @@
+<!---->
+<div class="container">
+    <h2>{{title}}</h2>
+
+    <div class="message success" *ngIf="status == 'success'">
+        La noticia se ha creado correctamente, puedes <a [routerLink]=
+        "['/noticias-detalle', save_news._id]">verlo aquí</a>
+    </div>
+
+    <div class="message failed" *ngIf="status == 'failed'">
+        La noticia no se ha podido crear
+    </div>
+
+    <form #newsForm="ngForm" (ngSubmit)="onSubmit(newsForm)">
+        <p>
+            <label for="date">Fecha Noticia</label>
+            <input type="date" name="date" #date="ngModel" [(ngModel)]="newNews.date" />
+            <span class="form_error" *ngIf="date.touched && !date.valid">
+                La fecha de la noticia es obligatoria
+            </span>
+        </p>
+        
+        <p>
+            <label for="topic">Título Noticia</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="newNews.topic" required />
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                El título de la noticia es obligatorio
+            </span>
+        </p>
+
+        <p> 
+            <label for="description">Descripción Noticia</label>
+            <small class="nota">Para resaltar un texto usar strong, Ej: &lt;strong&gt;Texto en negrita&lt;/strong&gt;</small>
+            <textarea name="description" #description="ngModel" [(ngModel)]="newNews.description" required></textarea>
+            <span class="form_error" *ngIf="description.touched && !description.valid">
+                La descripción de la noticia es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="source">Fuente</label>
+            <input type="text" name="source" #name="ngModel" [(ngModel)]="newNews.source" required />
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                La fuente es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="author">Autor/a</label>
+            <input type="text" name="author" #coach="ngModel" [(ngModel)]="newNews.author" required />
+            <span class="form_error" *ngIf="coach.touched && !coach.valid">
+                El autor del artículo de la noticia es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="link">Link</label>
+            <input type="text" name="link" #link="ngModel" [(ngModel)]="newNews.link" required />
+            <span class="form_error" *ngIf="link.touched && !link.valid">
+                El link es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="image">Imágen de la noticia</label>
+            <span class="image" *ngIf="newNews.image" style="float: none;">
+                <img src="{{url_1+'get-image/'+newNews.image}}" style="width: 100px; height: 100px;" *ngIf="newNews.image" />
+            </span><br/>
+            <input type="file" name="image" placeholder="Subir imagen" (change)="fileChangeEvent($event)"/>
+        </p>
+
+        <input type="submit" value="Enviar" [disabled]="!newsForm.form.valid" />
+    </form>
+</div>
+
+<!--public _id: string,
+public name: string,
+public description: string,
+public category: string,
+public year: number,
+public coach: string,
+public image: string*/-->

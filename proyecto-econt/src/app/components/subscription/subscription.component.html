@@ -1,0 +1,92 @@
+<div class="registration-wrapper" *ngIf="newRegister">
+  <p class="back-text-curso-inscripcion" (click)="goBack()"><--Regresar</p>
+  <h1 class="page-title">{{ title }}{{newRegister.start_date | addDay | date: 'dd/MM/yyyy'}} al {{newRegister.end_date | addDay | date: 'dd/MM/yyyy'}}</h1>
+  
+  <div class="registration-content">
+    <!-- Imagen a la izquierda -->
+    <div class="image-section" *ngIf="newRegister.image">
+      <img class="float-image" [src]="url + 'get-image/' + newRegister.image" alt="Imagen del curso" />
+      <h2>Descripción del curso</h2>
+      <br>
+      <p [innerHTML]="newRegister.description | nl2br"></p>
+      <div>
+        <br>
+        <p class="news-author-1"><strong>Facilitador:</strong> {{newRegister.coach}}</p>
+      </div>
+    </div>
+
+    <!-- Formulario a la derecha -->
+    <div class="form-section">
+      <!-- Mensajes de estado -->
+      <div *ngIf="status === 'success'" class="status-message success">
+        Registro exitoso, nos contactaremos con usted para remitirle el link de la capacitación y completar el pago. <a [routerLink]="['/cursos-listado']">Regresar</a>
+      </div>
+      <div *ngIf="status === 'failed'" class="status-message error">
+        No se pudo completar el registro.
+      </div>
+
+      <!-- Formulario -->
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="registration-form">
+        <h2>Registro</h2>
+        <div class="form-group">
+          <label for="name">Nombres y Apellidos</label>
+          <input type="text" id="name" formControlName="name" />
+          <div class="form-error" *ngIf="form.get('name')?.touched">
+            <span *ngIf="form.get('name')?.errors?.['required']">Campo obligatorio</span>
+            <span *ngIf="form.get('name')?.errors?.['pattern']">Solo letras, mínimo 5 caracteres</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cedula">Número de Identificación</label>
+          <input type="text" id="cedula" formControlName="cedula" />
+          <div class="form-error" *ngIf="form.get('cedula')?.touched">
+            <span *ngIf="form.get('cedula')?.errors?.['required']">Campo obligatorio</span>
+            <span *ngIf="form.get('cedula')?.errors?.['pattern']">Debe tener 10 dígitos</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="birthdate">Fecha de nacimiento</label>
+          <input type="date" id="birthdate" formControlName="birthdate" />
+          <div class="form-error" *ngIf="form.get('birthdate')?.touched">
+            <span *ngIf="form.get('birthdate')?.errors?.['required']">Campo obligatorio</span>
+            <span *ngIf="form.get('birthdate')?.errors?.['tooYoung']">Debes tener al menos 15 años</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mail">Correo Electrónico</label>
+          <input type="email" id="mail" formControlName="mail" />
+          <div class="form-error" *ngIf="form.get('mail')?.touched">
+            <span *ngIf="form.get('mail')?.errors?.['required']">Campo obligatorio</span>
+            <span *ngIf="form.get('mail')?.errors?.['email']">Formato inválido</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fone">Número Telefónico</label>
+          <input type="text" id="fone" formControlName="fone" />
+          <div class="form-error" *ngIf="form.get('fone')?.touched">
+            <span *ngIf="form.get('fone')?.errors?.['required']">Campo obligatorio</span>
+            <span *ngIf="form.get('fone')?.errors?.['pattern']">Debe tener al menos 7 dígitos</span>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid" class="btn-submit" (click)="scrollToTop()">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  
+</div>
+
+
+
+<!--public _id: string,
+public name: string,
+public description: string,
+public category: string,
+public year: number,
+public coach: string,
+public image: string*/-->

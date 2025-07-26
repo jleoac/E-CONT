@@ -1,0 +1,43 @@
+<!--Esta sección es el cuerpo en html donde se ingresa el usuario y contraseña-->
+<body>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label for="username">Usuario:</label>
+        <input formControlName="email" type="email" class="form-control" id="username" name="username" required>
+
+        <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="text-danger"
+        >
+        <div *ngIf="email.errors?.['required']">
+            <p>El email es requirido.</p>
+        </div>
+        <div *ngIf="email.errors?.['email']">
+            <p>email debe tener un formato válido.</p>
+        </div>
+      </div>
+
+        <label for="password">Contraseña:</label>
+        <input formControlName="password" type="password" class="form-control" id="password" name="password" required>
+
+        <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-danger"
+        >
+        <div *ngIf="password.errors?.['required']">
+            <p>El password es requirido.</p>
+        </div>
+      </div>
+
+        <input type="submit" (click)="login()" class="btn-primary" value="Iniciar Sesión">
+
+        <div *ngIf="errorMessage" class="form-error">{{ errorMessage }}</div>
+    </form>
+</body>
+<!--
+<body>
+    <h1>Welcome to the Auth System</h1>
+    <a [routerLink]="['/crear-usuario']" [routerLinkActive]="['actived']">Crear Usuario</a>
+    <a href="create-user.html">Create User</a>
+    <a href="edit_user.html">Edit User</a>
+</body>
+-->

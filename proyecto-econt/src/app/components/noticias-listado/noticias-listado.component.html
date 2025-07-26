@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Noticias</h2>
+    <ul>
+        <li *ngFor="let newNews of news" class="project">
+            <a [routerLink]="['/noticias-detalle', newNews._id]"  (click)="scrollToTop()">
+                <div class="image">
+                    <img src="{{url_1+'get-image/'+newNews.image}}" *ngIf="newNews.image" />
+                </div>
+
+                <h3>{{newNews.date}}</h3>
+                <p>{{newNews.topic | slice:0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}</p>
+                <p>{{newNews.description | slice:0:40 }}{{ newNews.description.length > 40 ? '...' : '' }}</p>
+                <p>{{newNews.source | slice:0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}</p>
+                <p>{{newNews.author | slice:0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}</p>
+                <p>{{newNews.link | slice:0:30 }}</p>
+            </a>
+        </li>
+    </ul>
+</div>

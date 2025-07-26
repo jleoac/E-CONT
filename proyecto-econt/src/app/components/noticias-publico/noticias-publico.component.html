@@ -1,0 +1,21 @@
+<div class="news-container">
+  <h2 class="news-title">Últimas Noticias</h2>
+  <ul class="news-list">
+    <li *ngFor="let newNews of news" class="news-item">
+      <a [href]="newNews.link" class="news-link">
+        <div class="news-image" *ngIf="newNews.image">
+          <img [src]="url_1 + 'get-image/' + newNews.image" [alt]="newNews.topic" />
+        </div>
+        <div class="news-content">
+          <h3 class="news-date">{{ newNews.date }}</h3>
+          <h4 class="news-topic">{{newNews.topic | slice:0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}</h4>
+          <p class="news-description">{{newNews.description | slice:0:50 }}{{ newNews.description.length > 50 ? '...' : '' }}</p>
+          <p class="news-meta">
+            <span class="news-source">{{newNews.source | slice:0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}</span> | 
+            <span class="news-author">{{newNews.author | slice:0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}</span>
+          </p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
