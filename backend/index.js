@@ -1,19 +1,29 @@
-'use strict'
+'use strict';
 
-var mongoose = require('mongoose');
-var app = require('./app');
+require('dotenv').config(); // ← Asegúrate de cargar variables de entorno desde .env (localmente)
+
+const mongoose = require('mongoose');
+const app = require('./app');
 const port = process.env.PORT || 3700;
 
 mongoose.set('strictQuery', true);
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI)
-        .then(() =>{
-            console.log("Conexión exitosa a la base de datos de Econt...");
 
-            //creación del servidor
-            app.listen(port, () => {
-                console.log("Servidor corriendo correctamente en la url: localhost:3700");
-            });
+const mongoUri = process.env.MONGODB_URI;
 
-        })
-        .catch(err => console.log(err));
+if (!mongoUri) {
+    console.error("❌ Error: La variable MONGODB_URI no está definida. Revisa tu archivo .env o configuración de Railway.");
+    process.exit(1); // detiene la app
+}
+
+mongoose.connect(mongoUri)
+    .then(() => {
+        console.log("✅ Conexión exitosa a la base de datos de Econt...");
+
+        app.listen(port, () => {
+            console.log(`🚀 Servidor corriendo correctamente en el puerto: ${port}`);
+        });
+    })
+    .catch(err => {
+        console.error("❌ Error al conectar a MongoDB:", err);
+    });
