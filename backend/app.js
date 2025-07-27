@@ -5,6 +5,18 @@ var bodyParser = require('body-parser');
 const path = require('path');
 var app = express();
 
+// Sirve los archivos estáticos del frontend Angular
+app.use(express.static(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular')));
+
+// Favicon opcional (evita error 502)
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular/favicon.ico'));
+});
+
+// Para cualquier ruta que no sea API, enviar index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular/index.html'));
+});
 
 //rutas
 var project_routes = require('./routes/project');
@@ -37,18 +49,7 @@ app.use('/api', project_routes3);
 app.use('/api', project_routes4);
 app.use('/api', project_routes5);
 
-// Sirve los archivos estáticos del frontend Angular
-app.use(express.static(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular')));
 
-// Favicon opcional (evita error 502)
-app.get('/favicon.ico', (req, res) => {
-  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular/favicon.ico'));
-});
-
-// Para cualquier ruta que no sea API, enviar index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular/index.html'));
-});
 
 /*app.get('/', (req, res) => {
     res.status(200).send(
