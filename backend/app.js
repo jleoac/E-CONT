@@ -2,8 +2,11 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-
+const path = require('path');
 var app = express();
+
+// Sirve los archivos estáticos del frontend Angular
+app.use(express.static(path.join(__dirname, '../proyecto-econt/dist/proyecto-econt')));
 
 //rutas
 var project_routes = require('./routes/project');
@@ -28,6 +31,7 @@ app.use((req, res, next) => {
     next();
 });
 
+
 //rutas
 app.use('/api', project_routes);
 app.use('/api', project_routes2);
@@ -35,11 +39,9 @@ app.use('/api', project_routes3);
 app.use('/api', project_routes4);
 app.use('/api', project_routes5);
 
-// Ruta raíz para verificar que todo funcione (importante para Railway)
-app.get('/', (req, res) => {
-    res.status(200).send(
-        "<h1>✅ API de Econt funcionando correctamente</h1>"
-    );
+// Para cualquier ruta que no sea API, enviar index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-econt/index.html'));
 });
 
 /*app.get('/', (req, res) => {

@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config(); // ← Asegúrate de cargar variables de entorno desde .env (localmente)
+require('dotenv').config();
 
 const mongoose = require('mongoose');
 const app = require('./app');
