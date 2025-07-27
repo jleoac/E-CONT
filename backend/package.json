@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd proyecto-econt && npm install && npx ng build --configuration production",
-    "start": "node app.js"
+    "start": "node backend/index.js"
   },
   "author": "Leonardo A",
   "license": "MIT",

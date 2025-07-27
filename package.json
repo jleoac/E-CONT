@@ -2,7 +2,7 @@
 {
   "scripts": {
     "build": "cd proyecto-econt && npm install && npx ng build --configuration production",
-    "start": "node app.js"
+    "start": "node backend/index.js"
   },
 
   "dependencies": {
