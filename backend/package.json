@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node backend/index.js",
+    "build": "cd proyecto-econt && npm install && ng build --configuration production"
   },
   "author": "Leonardo A",
   "license": "MIT",
