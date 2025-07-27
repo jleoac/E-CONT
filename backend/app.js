@@ -6,7 +6,7 @@ const path = require('path');
 var app = express();
 
 // Sirve los archivos estáticos del frontend Angular
-app.use(express.static(path.join(__dirname, '../proyecto-econt/dist/proyecto-econt')));
+app.use(express.static(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular')));
 
 //rutas
 var project_routes = require('./routes/project');
@@ -41,7 +41,7 @@ app.use('/api', project_routes5);
 
 // Para cualquier ruta que no sea API, enviar index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-econt/index.html'));
+  res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular/index.html'));
 });
 
 /*app.get('/', (req, res) => {
