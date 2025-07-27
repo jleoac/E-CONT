@@ -1,5 +1,10 @@
 
 {
+  "scripts": {
+    "build": "cd proyecto-econt && npm install && npx ng build --configuration production",
+    "start": "node backend/index.js"
+  },
+
   "dependencies": {
     "bootstrap": "^5.3.3"
   }
