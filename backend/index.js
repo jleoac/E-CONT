@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const app = require('./app');
-const port = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 if (!port) {
   console.error("❌ No se ha definido el puerto desde process.env.PORT");
