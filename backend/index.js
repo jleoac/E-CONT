@@ -4,9 +4,15 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const app = require('./app');
-const port = process.env.PORT || 3700;
+const port = process.env.PORT;
+
+if (!port) {
+  console.error("❌ No se ha definido el puerto desde process.env.PORT");
+  process.exit(1);
+}
+
 app.listen(port, () => {
-  console.log(`Servidor corriendo en puerto: ${port}`);
+  console.log(`🚀 Servidor corriendo correctamente en el puerto: ${port}`);
 });
 
 mongoose.set('strictQuery', true);
