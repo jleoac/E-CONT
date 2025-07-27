@@ -41,7 +41,7 @@ app.use('/api', project_routes5);
 app.use(express.static(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular')));
 
 // Para cualquier ruta que no sea API, enviar index.html
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../proyecto-econt/dist/proyecto-angular/index.html'));
 });
 
