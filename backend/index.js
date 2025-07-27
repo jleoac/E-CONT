@@ -11,9 +11,6 @@ if (!port) {
   process.exit(1);
 }
 
-app.listen(port, () => {
-  console.log(`🚀 Servidor corriendo correctamente en el puerto: ${port}`);
-});
 
 mongoose.set('strictQuery', true);
 mongoose.Promise = global.Promise;
