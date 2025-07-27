@@ -2,12 +2,18 @@
 {
   "name": "proyecto-econt-fullstack",
   "version": "1.0.0",
+  "description": "Proyecto completo con backend y frontend en Railway",
   "scripts": {
     "install": "cd backend && npm install && cd ../proyecto-econt && npm install",
     "build": "cd proyecto-econt && npx ng build --configuration production",
-    "start": "node backend/index.js"
+    "start": "cd backend && npm start"
   },
   "dependencies": {
     "bootstrap": "^5.3.3"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
   }
+
 }
