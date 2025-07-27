@@ -5,6 +5,9 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const app = require('./app');
 const port = process.env.PORT || 3700;
+app.listen(port, () => {
+  console.log(`Servidor corriendo en puerto: ${port}`);
+});
 
 mongoose.set('strictQuery', true);
 mongoose.Promise = global.Promise;
@@ -27,3 +30,5 @@ mongoose.connect(mongoUri)
     .catch(err => {
         console.error("❌ Error al conectar a MongoDB:", err);
     });
+
+app.get('/favicon.ico', (req, res) => res.status(204));
