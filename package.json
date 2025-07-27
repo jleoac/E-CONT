@@ -1,7 +1,8 @@
 
 {
   "scripts": {
-    "start": "cd backend && npm install && node index.js"
+    "build": "cd proyecto-econt && npm install && npx ng build --configuration production",
+    "start": "npm run build && cd backend && npm install && node index.js"
   },
   "dependencies": {
     "bootstrap": "^5.3.3"
