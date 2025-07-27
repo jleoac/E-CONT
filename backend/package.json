@@ -4,7 +4,6 @@
   "description": "Api rest para aprender JavaScript",
   "main": "index.js",
   "scripts": {
-    "build": "cd ../proyecto-econt && npm install && npx ng build --configuration production",
     "start": "node index.js"
   },
   "author": "Leonardo A",
