@@ -1,3 +1,5 @@
+import { environment } from 'src/environments/environment';
+
 export var Global = {
-    url: 'http://localhost:3700/api/'
-}
+  url: environment.apiUrl
+};
