@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://ekont-production.up.railway.app/api/'
+  apiUrl: 'https://e-cont.up.railway.app/api/'
 };
