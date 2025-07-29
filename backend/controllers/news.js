@@ -96,10 +96,8 @@ var controller = {
 
         if(req.files){
             var filePath = req.files.image.path;
-            var fileSplit = filePath.split('\\');
-            var fileName = fileSplit[fileSplit.length - 1]; 
-            var extSplit = fileName.split('\.');
-            var fileExt = extSplit[extSplit.length - 1].toLowerCase();
+            var fileName = path.basename(filePath); // ✅ obtiene solo el nombre del archivo
+            var fileExt = path.extname(fileName).toLowerCase().replace('.', ''); // ✅ "jpg", "png", etc.
 
             if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif'){
                 News.findByIdAndUpdate(newsId, {image: fileName}, {new: true}, (err, newsUpdated) => {
