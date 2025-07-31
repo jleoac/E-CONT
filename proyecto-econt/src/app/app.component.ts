@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { Global } from './services/global';
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   public adminLogged: any = {}; // 👈 aquí se guardará el admin logueado con imagen
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cd: ChangeDetectorRef) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.loading = true;
@@ -133,10 +133,14 @@ export class AppComponent implements OnInit {
   onDocumentClick(event: MouseEvent): void {
     const clickedElement = event.target as HTMLElement;
     const headerElement = document.querySelector('header');
-    const isClickInsideMenu = headerElement?.contains(clickedElement);
+    const menuToggle = document.querySelector('.menu-toggle');
 
-    if (!isClickInsideMenu && this.menuAbierto) {
+    const isClickInsideHeader = headerElement?.contains(clickedElement);
+    const isClickInsideToggle = menuToggle?.contains(clickedElement);
+
+    if (!isClickInsideHeader && !isClickInsideToggle && this.menuAbierto) {
       this.menuAbierto = false;
+      this.cd.detectChanges(); // 👈 Fuerza actualización de Angular
     }
   } 
 }
