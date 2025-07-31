@@ -130,20 +130,7 @@ export class AppComponent implements OnInit {
   
   //Para salir del nav:
   @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    const clickedElement = event.target as HTMLElement;
-    const headerElement = document.querySelector('header');
-    const menuToggle = document.querySelector('.menu-toggle');
-
-    const isClickInsideHeader = headerElement?.contains(clickedElement);
-    const isClickInsideToggle = menuToggle?.contains(clickedElement);
-
-    if (!isClickInsideHeader && !isClickInsideToggle && this.menuAbierto) {
-      console.log('click fuera');
-      console.log('menuAbierto antes:', this.menuAbierto);
-      this.menuAbierto = false;
-      console.log('menuAbierto después:', this.menuAbierto);
-      this.cd.detectChanges(); // 👈 Fuerza actualización de Angular
-    }
+  handleGlobalClick(event: MouseEvent): void {
+    console.log('Clic global detectado'); // 👈 Esto debería salir SIEMPRE que haces clic en la página
   } 
 }
