@@ -30,7 +30,7 @@
   <ul class="nav-links" [class.active]="menuAbierto">
     <li id="logo"><a [routerLink]="['/homepage']" (click)="menuAbierto = false; scrollToTop(); goHome()">E-CONT</a></li>
     <li class="dropdown">
-      <a class="dropdown-toggle">Administración</a>
+      <a class="dropdown-toggle" (click)="cerrarMenuYScroll()">Administración</a>
       <ul class="dropdown-content">
         <li><a [routerLink]="['/login-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear usuario</a></li>
         <li><a [routerLink]="['/login-editar']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar usuarios</a></li>
