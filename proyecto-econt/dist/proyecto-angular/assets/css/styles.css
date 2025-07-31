@@ -1287,6 +1287,9 @@ se ejecutarán estos estilos*/
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+}
+
+@media (max-width: 768px) {
   .live-courses-container {
     max-width: 1200px;
     margin: 2rem auto;
