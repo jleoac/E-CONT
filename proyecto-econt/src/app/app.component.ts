@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.loading = true;
+        this.menuAbierto = false;
       } else if (
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
       ) {
         setTimeout(() => {
           this.loading = false;
-        }, 300); // Espera de 1 segundo
+        }, 300); // Espera de 0.3 segundos
       }
     });
   }
@@ -126,5 +127,16 @@ export class AppComponent implements OnInit {
       }
     }
   }
+  
+  //Para salir del nav:
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedElement = event.target as HTMLElement;
+    const headerElement = document.querySelector('header');
+    const isClickInsideMenu = headerElement?.contains(clickedElement);
 
+    if (!isClickInsideMenu && this.menuAbierto) {
+      this.menuAbierto = false;
+    }
+  } 
 }
