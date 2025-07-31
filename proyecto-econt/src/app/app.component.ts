@@ -139,7 +139,10 @@ export class AppComponent implements OnInit {
     const isClickInsideToggle = menuToggle?.contains(clickedElement);
 
     if (!isClickInsideHeader && !isClickInsideToggle && this.menuAbierto) {
+      console.log('click fuera');
+      console.log('menuAbierto antes:', this.menuAbierto);
       this.menuAbierto = false;
+      console.log('menuAbierto después:', this.menuAbierto);
       this.cd.detectChanges(); // 👈 Fuerza actualización de Angular
     }
   } 
