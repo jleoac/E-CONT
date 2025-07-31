@@ -1320,4 +1320,12 @@ se ejecutarán estos estilos*/
     left: 15px;
     z-index: 999;
   }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex; /* o block según tu diseño */
+  }
 }
