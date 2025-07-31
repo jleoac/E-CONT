@@ -1236,6 +1236,16 @@ se ejecutarán estos estilos*/
 
   .menu-toggle {
     display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 40px;
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 999;
   }
 
   .nav-links {
@@ -1289,11 +1299,25 @@ se ejecutarán estos estilos*/
 
 }
 
-@media (max-width: 412px) {
+@media (max-width: 444px) {
   .live-courses-container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0rem;
     font-family: 'Segoe UI', sans-serif;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 40px;
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 999;
   }
 }
