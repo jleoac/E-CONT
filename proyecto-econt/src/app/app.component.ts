@@ -45,6 +45,11 @@ export class AppComponent implements OnInit {
     this.menuAbierto = !this.menuAbierto;
   }
 
+  cerrarMenuYScroll() {
+    this.scrollToTop();
+    this.menuAbierto = false;
+  }
+
   ngOnInit(): void {
     const isAdminLoggedIn = sessionStorage.getItem('isAdminLoggedIn');
     const adminData = sessionStorage.getItem('adminData');

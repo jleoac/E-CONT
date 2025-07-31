@@ -32,31 +32,31 @@
     <li class="dropdown">
       <a class="dropdown-toggle">Administración</a>
       <ul class="dropdown-content">
-        <li><a [routerLink]="['/login-crear']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Crear usuario</a></li>
-        <li><a [routerLink]="['/login-editar']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Listar usuarios</a></li>
+        <li><a [routerLink]="['/login-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear usuario</a></li>
+        <li><a [routerLink]="['/login-editar']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar usuarios</a></li>
       </ul>
     </li><li class="dropdown">
       <a class="dropdown-toggle">Capacitaciones</a>
       <ul class="dropdown-content">
-        <li><a [routerLink]="['/capacitacion-crear']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Crear Capacitaciones</a></li>
-        <li><a [routerLink]="['/capacitacion-listado']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Listar Capacitaciones</a></li>
-        <li><a [routerLink]="['/capacitacion-registros-det']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Registros Capacitaciones</a></li>
+        <li><a [routerLink]="['/capacitacion-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Capacitaciones</a></li>
+        <li><a [routerLink]="['/capacitacion-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Capacitaciones</a></li>
+        <li><a [routerLink]="['/capacitacion-registros-det']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Registros Capacitaciones</a></li>
       </ul>
     </li>
     <li class="dropdown">
       <a class="dropdown-toggle">Noticias</a>
       <ul class="dropdown-content">
-        <li><a [routerLink]="['/noticias-crear']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Crear Noticias</a></li>
-        <li><a [routerLink]="['/noticias-listado']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Listar Noticias</a></li>
+        <li><a [routerLink]="['/noticias-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Noticias</a></li>
+        <li><a [routerLink]="['/noticias-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Noticias</a></li>
       </ul>
     </li>
-    <li><a [routerLink]="['/buzon']" [routerLinkActive]="['actived']" (click)="scrollToTop(); menuAbierto = false">Buzón</a></li>
+    <li><a [routerLink]="['/buzon']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Buzón</a></li>
     <li class="dropdown" *ngIf="adminLogged?.image">
       <a class="dropdown-toggle">
         <img [src]="getAdminImageUrl()" alt="Perfil" class="admin-profile-image" title="{{ adminLogged?.email }}" />
       </a>
       <ul class="dropdown-content">
-        <li><a (click)="logout(); scrollToTop(); menuAbierto = false">Cerrar Sesión</a></li>
+        <li><a (click)="logout(); cerrarMenuYScroll()">Cerrar Sesión</a></li>
       </ul>
     </li>
 
