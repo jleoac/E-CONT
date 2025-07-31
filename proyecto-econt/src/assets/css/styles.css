@@ -1286,4 +1286,11 @@ se ejecutarán estos estilos*/
   .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
+  .live-courses-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
 }
