@@ -28,7 +28,8 @@
   </div>
 
   <ul class="nav-links" [class.active]="menuAbierto">
-    <li id="logo"><a [routerLink]="['/homepage']" (click)="menuAbierto = false; scrollToTop(); goHome()">E-CONT</a></li>
+    <li id="logo"><a [routerLink]="['/homepage']" (click)="scrollToTop(); goHome(); menuAbierto = true">E-CONT</a></li>
+
     <li class="dropdown">
       <a class="dropdown-toggle">Administración</a>
       <ul class="dropdown-content">
