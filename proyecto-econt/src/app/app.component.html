@@ -1,24 +1,4 @@
 <!--Este html sirve para que salga este mismo encabezado en todos los links o páginas individuales del Cliente-->
-<ng-container *ngIf="administratorLoginOn">
-<header>
-  <!-- Botón de menú móvil solo visible en pantallas pequeñas -->
-  <div class="menu-toggle" (click)="toggleMenu()">
-    <img src="../assets/img/icon_econt.png" alt="e-cont" />
-    <span class="flecha-icono">{{ flechaIcono }}</span>
-  </div>
-
-  <ul class="nav-links" [class.active]="menuAbierto">
-    <li id="logo"><a [routerLink]="['/homepage']" (click)="scrollToTop(); goHome(); menuAbierto = false">E-CONT</a></li>
-    <li><a [routerLink]="['/sobre-nosotros']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Sobre nosotros</a></li>
-    <li><a [routerLink]="['/servicios']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Servicios</a></li>
-    <li><a [routerLink]="['/contacto']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Contactos</a></li>
-    <li><a [routerLink]="['/cursos-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Capacitaciones</a></li>
-    <li *ngIf="!userLoginOn"><a [routerLink]="['/login']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Iniciar Sesión</a></li>
-  </ul>
-</header>
-</ng-container>
-
-
 <ng-container *ngIf="!administratorLoginOn">
 <header>
   <!-- Botón de menú móvil solo visible en pantallas pequeñas -->
@@ -29,36 +9,40 @@
 
   <ul class="nav-links" [class.active]="menuAbierto">
     <li id="logo"><a [routerLink]="['/homepage']" (click)="scrollToTop(); goHome(); menuAbierto = false">E-CONT</a></li>
+    <li><a [routerLink]="['/sobre-nosotros']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Sobre nosotros dos</a></li>
+    <li><a [routerLink]="['/servicios']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Servicios</a></li>
+    <li><a [routerLink]="['/contacto']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Contactos</a></li>
+    <li><a [routerLink]="['/cursos-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Capacitaciones</a></li>
+    <li *ngIf="!userLoginOn"><a [routerLink]="['/login']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Iniciar Sesión</a></li>
+  </ul>
+</header>
+</ng-container>
 
-    <li class="dropdown">
-      <a class="dropdown-toggle">Administración</a>
-      <ul class="dropdown-content">
-        <li><a [routerLink]="['/login-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear usuario</a></li>
-        <li><a [routerLink]="['/login-editar']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar usuarios</a></li>
-      </ul>
-    </li><li class="dropdown">
-      <a class="dropdown-toggle">Capacitaciones</a>
-      <ul class="dropdown-content">
-        <li><a [routerLink]="['/capacitacion-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Capacitaciones</a></li>
-        <li><a [routerLink]="['/capacitacion-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Capacitaciones</a></li>
-        <li><a [routerLink]="['/capacitacion-registros-det']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Registros Capacitaciones</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle">Noticias</a>
-      <ul class="dropdown-content">
-        <li><a [routerLink]="['/noticias-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Noticias</a></li>
-        <li><a [routerLink]="['/noticias-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Noticias</a></li>
-      </ul>
-    </li>
+
+<ng-container *ngIf="administratorLoginOn">
+<header>
+  <!-- Botón de menú móvil solo visible en pantallas pequeñas -->
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <img src="../assets/img/icon_econt.png" alt="e-cont" />
+    <span class="flecha-icono">{{ flechaIcono }}</span>
+  </div>
+
+  <ul class="nav-links" [class.active]="menuAbierto">
+    <li id="logo"><a [routerLink]="['/homepage']" (click)="scrollToTop(); goHome(); menuAbierto = false">E-CONT</a></li>
+    <li><a [routerLink]="['/login-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear usuario</a></li>
+    <li><a [routerLink]="['/login-editar']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar usuarios</a></li>
+    <li><a [routerLink]="['/capacitacion-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Capacitaciones</a></li>
+    <li><a [routerLink]="['/capacitacion-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Capacitaciones</a></li>
+    <li><a [routerLink]="['/capacitacion-registros-det']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Registros Capacitaciones</a></li>
+    <li><a [routerLink]="['/noticias-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Noticias</a></li>
+    <li><a [routerLink]="['/noticias-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Noticias</a></li>
     <li><a [routerLink]="['/buzon']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Buzón</a></li>
     <li class="dropdown" *ngIf="adminLogged?.image">
       <a class="dropdown-toggle">
         <img [src]="getAdminImageUrl()" alt="Perfil" class="admin-profile-image" title="{{ adminLogged?.email }}" />
       </a>
-      <ul class="dropdown-content">
         <li><a (click)="logout(); scrollToTop(); menuAbierto = false">Cerrar Sesión</a></li>
-      </ul>
+      
     </li>
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { Global } from './services/global';
 
@@ -21,11 +21,10 @@ export class AppComponent implements OnInit {
 
   public adminLogged: any = {}; // 👈 aquí se guardará el admin logueado con imagen
 
-  constructor(private router: Router, private cd: ChangeDetectorRef) {
+  constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.loading = true;
-        this.menuAbierto = false;
       } else if (
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||
@@ -127,23 +126,5 @@ export class AppComponent implements OnInit {
       }
     }
   }
-  
-  //Para salir del nav:
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    const clickedElement = event.target as HTMLElement;
-    const headerElement = document.querySelector('header');
-    const menuToggle = document.querySelector('.menu-toggle');
 
-    const isClickInsideHeader = headerElement?.contains(clickedElement);
-    const isClickInsideToggle = menuToggle?.contains(clickedElement);
-
-    if (!isClickInsideHeader && !isClickInsideToggle && this.menuAbierto) {
-      console.log('click fuera');
-      console.log('menuAbierto antes:', this.menuAbierto);
-      this.menuAbierto = false;
-      console.log('menuAbierto después:', this.menuAbierto);
-      this.cd.detectChanges(); // 👈 Fuerza actualización de Angular
-    }
-  } 
 }
