@@ -6,7 +6,6 @@
   "scripts": {
     "install": "cd backend && npm install && cd ../proyecto-econt && npm install",
     "build": "cd proyecto-econt && npx ng build --configuration production",
-    "heroku-postbuild": "cd proyecto-econt && npx ng build --configuration production",
     "start": "cd backend && npm start"
   },
   "dependencies": {
