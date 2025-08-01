@@ -1,5 +1,5 @@
 <!--Este html sirve para que salga este mismo encabezado en todos los links o páginas individuales del Cliente-->
-<ng-container *ngIf="!administratorLoginOn">
+<ng-container *ngIf="administratorLoginOn">
 <header>
   <!-- Botón de menú móvil solo visible en pantallas pequeñas -->
   <div class="menu-toggle" (click)="toggleMenu()">
@@ -19,7 +19,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="administratorLoginOn">
+<ng-container *ngIf="!administratorLoginOn">
 <header>
   <!-- Botón de menú móvil solo visible en pantallas pequeñas -->
   <div class="menu-toggle" (click)="toggleMenu()">
