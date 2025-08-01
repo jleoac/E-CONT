@@ -1328,4 +1328,5 @@ se ejecutarán estos estilos*/
   .nav-links.active {
     display: flex; /* o block según tu diseño */
   }
+
 }
