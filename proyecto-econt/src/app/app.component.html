@@ -37,15 +37,7 @@
     <li><a [routerLink]="['/noticias-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Noticias</a></li>
     <li><a [routerLink]="['/noticias-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Noticias</a></li>
     <li><a [routerLink]="['/buzon']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Buzón</a></li>
-    <li class="dropdown" *ngIf="adminLogged?.image">
-      <a class="dropdown-toggle">
-        <img [src]="getAdminImageUrl()" alt="Perfil" class="admin-profile-image" title="{{ adminLogged?.email }}" />
-      </a>
-        <li><a (click)="logout(); scrollToTop(); menuAbierto = false">Cerrar Sesión</a></li>
-      
-    </li>
-
-
+    <li><a (click)="logout(); scrollToTop(); menuAbierto = false">Cerrar Sesión</a></li>
   </ul>
 </header>
 </ng-container>
