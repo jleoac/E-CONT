@@ -127,4 +127,14 @@ export class AppComponent implements OnInit {
     }
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedElement = event.target as HTMLElement;
+    const headerElement = document.querySelector('header');
+    const isClickInsideMenu = headerElement?.contains(clickedElement);
+
+    if (!isClickInsideMenu && this.menuAbierto) {
+      this.menuAbierto = false;
+    }
+  }
 }
