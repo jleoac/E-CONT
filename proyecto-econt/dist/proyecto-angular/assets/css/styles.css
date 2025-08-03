@@ -236,7 +236,7 @@ footer{
 
 /*Sobre mi*/
 #title{
-    width: 70%;
+    width: 94%;
     margin: 0px auto;
     text-align: center;
     margin-top: 20px;
@@ -1297,50 +1297,9 @@ se ejecutarán estos estilos*/
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-}
-
-/* Responsive movil */
-@media (max-width: 444px) {
-  .body{
-    font-size: 15px;   
-  }
-
-  .live-courses-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0rem;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  .menu-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 40px;
-    color: #fff;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    z-index: 999;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex; /* o block según tu diseño */
-  }
-
-  .block{
-    padding: 1px;
-  }
-
   #title h1{
     font-size: 32px;
-    text-align: right;
+    text-align: center;
   }
 
   table {
@@ -1385,4 +1344,82 @@ se ejecutarán estos estilos*/
     font-size: 10px;
     color: #333;
   }
+
+}
+
+/* Responsive movil */
+@media (max-width: 444px) {
+  .body{
+    font-size: 15px;   
+  }
+
+  .live-courses-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 40px;
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 999;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex; /* o block según tu diseño */
+  }
+
+  .block{
+    padding: 1px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  td {
+    font-size: 10px;
+    padding-left: 110px; /* Aumentado para dejar espacio a la etiqueta */
+    position: relative;
+    text-align: justify; /* Justifica el contenido del td */
+    border: none;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 90px; /* Ancho fijo para que no invada el contenido */
+    white-space: normal;
+    font-weight: bold;
+    font-size: 10px;
+    color: #333;
+    text-align: left;
+  }
+
 }
