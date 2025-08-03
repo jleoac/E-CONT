@@ -1308,8 +1308,10 @@ se ejecutarán estos estilos*/
   }
 
   td, th {
-    padding: 4px 6px;        /* Reduce espacio interno */
-    text-align: justify;     /* Asegura justificación */
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    vertical-align: middle; /* <- Este es el cambio */
   }
 
   table, thead, tbody, th, td, tr {
