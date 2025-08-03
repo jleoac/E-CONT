@@ -1215,6 +1215,62 @@ se ejecutarán estos estilos*/
 
 }
 
+/* Responsive pantalla pequeña */
+@media (max-width: 961px) {
+  table {
+    font-size: 10px;         /* Reduce el tamaño de fuente */
+    word-wrap: break-word;   /* Evita desbordes */
+  }
+
+  td, th {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    vertical-align: top; /* <- Este es el cambio */
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  td {
+    display: flow-root;
+    align-items: center; /* Centra verticalmente */
+    justify-content: flex-start; /* Justifica a la izquierda el contenido */
+    font-size: 10px;
+    padding-left: 110px;
+    position: relative;
+    text-align: justify;
+    border: none;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+    min-height: 24px; /* Asegura suficiente altura */
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    justify-content: flex-start; /* Justifica a la izquierda el contenido */
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical */
+    width: 90px;
+    font-weight: bold;
+    font-size: 10px;
+    color: #333;
+    text-align: justify;
+    white-space: normal;
+  }
+}
 
 /* Responsive tablet */
 @media (max-width: 780px) {
@@ -1360,7 +1416,7 @@ se ejecutarán estos estilos*/
 
 /* Responsive movil */
 @media (max-width: 444px) {
-  .body{
+  body{
     font-size: 15px;   
   }
 
