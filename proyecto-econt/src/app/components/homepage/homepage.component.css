@@ -74,15 +74,15 @@ input[type="submit"]:hover {
 
 /*RESPONSIVE*/
 
-/*Desde la anchura 0px hasta la anchura 888px de la pantalla
+/*Desde la anchura 444px hasta la anchura 1242px de la pantalla
 se ejecutarán estos estilos*/
-@media (max-width: 1222px) {
+@media (max-width: 1242px) {
   .contenedorPrincipal {
     position: fixed;
     top: 0;
     right: 0;
     width: 600px;
-    max-width: 40%;
+    max-width: 30%;
     height: 100%;
     background-color: rgba(26, 56, 66, 0.86);
     z-index: 1000;
@@ -119,5 +119,46 @@ se ejecutarán estos estilos*/
 @media (min-width: 1222px) {
   .pestana-toggle {
     display: none !important;
+  }
+}
+
+/* Responsive movil */
+@media (min-width: 444px) {
+  .contenedorPrincipal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 600px;
+    max-width: 40%;
+    height: 100%;
+    background-color: rgba(26, 56, 66, 0.86);
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(100%); /* oculto sin empujar layout */
+    transition: transform 0.3s ease;
+  }
+
+  .contenedorPrincipal.abierto {
+    transform: translateX(0);
+  }
+
+  .pestana-toggle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #1a3842;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .subtitulo {
+    font-size: 20px;
+    text-align: center;
   }
 }

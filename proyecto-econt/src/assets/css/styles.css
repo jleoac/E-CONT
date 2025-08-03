@@ -455,7 +455,8 @@ table {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   font-family: Arial, sans-serif;
-  font-size: 12px
+  font-size: 12px;
+  text-align: justify;
 }
 
 thead {
@@ -1109,11 +1110,6 @@ button:hover {
   }
 }
 
-/*RESPONSIVE*/
-
-/*Desde la anchura 0px hasta la anchura 888px de la pantalla
-se ejecutarán estos estilos*/
-/* Responsive para móviles */
 .menu-toggle {
   display: none;
   align-items: center;
@@ -1148,8 +1144,12 @@ se ejecutarán estos estilos*/
   list-style: none;
 }
 
-/*Resposive Tablet*/
-@media (max-width: 1130px){
+/*RESPONSIVE*/
+
+/*Desde la anchura 0px hasta la anchura 1242px de la pantalla
+se ejecutarán estos estilos*/
+/* Responsive para pantalla pequeña*/
+@media (max-width: 1242px){
   header{
     display: block;
     width: 100%;
@@ -1216,7 +1216,7 @@ se ejecutarán estos estilos*/
 }
 
 
-/* Responsive móvil */
+/* Responsive tablet */
 @media (max-width: 780px) {
   header ul {
     flex-direction: column;
@@ -1299,7 +1299,12 @@ se ejecutarán estos estilos*/
 
 }
 
+/* Responsive movil */
 @media (max-width: 444px) {
+  .body{
+    font-size: 15px;   
+  }
+
   .live-courses-container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -1329,4 +1334,55 @@ se ejecutarán estos estilos*/
     display: flex; /* o block según tu diseño */
   }
 
+  .block{
+    padding: 1px;
+  }
+
+  #title h1{
+    font-size: 32px;
+    text-align: right;
+  }
+
+  table {
+    font-size: 10px;         /* Reduce el tamaño de fuente */
+    word-wrap: break-word;   /* Evita desbordes */
+  }
+
+  td, th {
+    padding: 4px 6px;        /* Reduce espacio interno */
+    text-align: justify;     /* Asegura justificación */
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  td {
+    font-size: 10px;
+    padding-left: 50%;
+    position: relative;
+    text-align: justify;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 10px;
+    color: #333;
+  }
 }

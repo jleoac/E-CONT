@@ -7,25 +7,23 @@
   </article>
 
   <table>
-  <thead>
-    <tr>
+    <thead>
+      <tr>
         <th>Fecha y hora de creación de usuario</th>
         <th>Correo Electrónico</th>
         <th>Contraseña</th>
-        <th>Acciones</th> <!-- NUEVA COLUMNA -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let newAdmin of admin" class="buzon">
-        <td>{{ newAdmin.fecha_usuario | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
-        <td>{{ newAdmin.email }}</td>
-        <td>{{ newAdmin.password }}</td>
-        <td>
-            <button (click)="deleteAdmin(newAdmin._id)">Borrar</button>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let newAdmin of admin" class="buzon">
+        <td data-label="Fecha y hora de creación de usuario">{{ newAdmin.fecha_usuario | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td data-label="Correo Electrónico">{{ newAdmin.email }}</td>
+        <td data-label="Contraseña">{{ newAdmin.password }}</td>
+        <td data-label="Acciones">
+          <button (click)="deleteAdmin(newAdmin._id)">Borrar</button>
         </td>
-       
-    </tr>
-  </tbody>
+      </tr>
+    </tbody>
   </table>
 </div>
-
