@@ -1,27 +1,62 @@
-<div class="container" *ngIf="newProject">
-    <h2>Detalle y Edición de Capacitaciones</h2>
-    <div class="image" *ngIf="newProject.image">
-        <img src="{{url+'get-image/'+newProject.image}}" *ngIf="newProject.image" />
+<div class="project-detail-container" *ngIf="newProject">
+  <h2 class="section-title">Detalle y Edición de Capacitaciones</h2>
+
+  <div class="project-detail">
+    <div class="project-image" *ngIf="newProject.image">
+      <img [src]="url + 'get-image/' + newProject.image" [alt]="newProject.topic" />
     </div>
 
-    <div class="data">
-        <h1>{{newProject.topic | slice:0:30 }}{{ newProject.topic.length > 30 ? '...' : '' }}</h1>
-        <h3>{{newProject.description | slice:0:50 }}{{ newProject.description.length > 50 ? '...' : '' }}</h3>
-        <h3>{{newProject.start_date}}</h3>
-        <h3>{{newProject.end_date}}</h3>
-        <p>{{newProject.coach | slice:0:30 }}{{ newProject.coach.length > 30 ? '...' : '' }}</p>
-        
-        <p *ngIf="confirm == false">
-            <a [routerLink]="['/capacitacion-editar', newProject._id]" class="button-edit">Editar</a>
-            <a [routerLink]="['/cursos-registro', newProject.topic, newProject.start_date, newProject.end_date, newProject.description, newProject.coach, newProject.image]" class="button-edit"  (click)="scrollToTop()">Revisar link público</a>
-            <a (click)="setConfirm(true)" class="button-delete">Borrar</a>
-        </p>
+    <div class="project-info">
+      <h1 class="project-title">
+        {{ newProject.topic | slice: 0:30 }}{{ newProject.topic.length > 30 ? '...' : '' }}
+      </h1>
 
-        <p *ngIf="confirm == true">
-            <span class="confirm">¿Estás seguro de eliminar este proyecto?</span>
-            <a (click)="setConfirm(false)" class="button-edit">Cancelar</a>
-            <a (click)="deleteProject(newProject._id)" class="button-delete">Eliminar definitivamente</a>
-        </p>
+      <h3 class="project-description">
+        {{ newProject.description | slice: 0:50 }}{{ newProject.description.length > 50 ? '...' : '' }}
+      </h3>
+
+      <h3 class="project-date"><strong>Inicio:</strong> {{ newProject.start_date }}</h3>
+      <h3 class="project-date"><strong>Fin:</strong> {{ newProject.end_date }}</h3>
+
+      <p class="project-coach">
+        <strong>Facilitador:</strong>
+        {{ newProject.coach | slice: 0:30 }}{{ newProject.coach.length > 30 ? '...' : '' }}
+      </p>
+
+      <!-- Acciones si no se ha confirmado eliminación -->
+      <div *ngIf="!confirm" class="project-actions">
+        <a
+          [routerLink]="['/capacitacion-editar', newProject._id]"
+          class="button button-edit"
+        >
+          Editar
+        </a>
+
+        <a
+          [routerLink]="[
+            '/cursos-registro',
+            newProject.topic,
+            newProject.start_date,
+            newProject.end_date,
+            newProject.description,
+            newProject.coach,
+            newProject.image
+          ]"
+          class="button button-preview"
+          (click)="scrollToTop()"
+        >
+          Revisar link público
+        </a>
+
+        <a (click)="setConfirm(true)" class="button button-delete">Borrar</a>
+      </div>
+
+      <!-- Confirmación de eliminación -->
+      <div *ngIf="confirm" class="project-confirm-delete">
+        <span class="confirm-text">¿Estás seguro de eliminar este proyecto?</span>
+        <a (click)="setConfirm(false)" class="button button-cancel">Cancelar</a>
+        <a (click)="deleteProject(newProject._id)" class="button button-delete-confirm">Eliminar definitivamente</a>
+      </div>
     </div>
-
+  </div>
 </div>

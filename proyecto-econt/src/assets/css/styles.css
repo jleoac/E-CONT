@@ -510,7 +510,7 @@ button:hover {
 .news-container {
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  padding: 8px;
   font-family: 'Segoe UI', sans-serif;
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -1213,6 +1213,26 @@ se ejecutarán estos estilos*/
     padding: 8px 12px;
   }
 
+  .project-detail {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-info {
+    align-items: center;
+  }
+
+  .project-date,
+  .project-coach {
+    font-size: 0.95rem;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 300px;
+  }
+
 }
 
 /* Responsive pantalla pequeña */
@@ -1417,7 +1437,7 @@ se ejecutarán estos estilos*/
 /* Responsive movil */
 @media (max-width: 444px) {
   body{
-    font-size: 15px;   
+    font-size: 14px;   
   }
 
   .live-courses-container {
