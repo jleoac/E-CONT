@@ -10,33 +10,33 @@
     <thead>
       <tr>
         <th>Tema</th>
-        <th>Fecha inicio de Curso</th>
-        <th>Fecha fin de Curso</th>
+        <th>Fecha inicio</th>
+        <th>Fecha fin</th>
         <th>Nombre</th>
         <th>Identificación</th>
-        <th>Fecha de nacimiento</th>
+        <th>Nacimiento</th>
         <th>Correo</th>
         <th>Teléfono</th>
-        <th>Fecha y hora de inscripción</th>
+        <th>Inscripción</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let newRegister of register" class="register">
-        <td>{{ newRegister.topic }}</td>
-        <td>{{ newRegister.start_date | addDay | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ newRegister.end_date | addDay | date: 'dd/MM/yyyy' }}</td>
-        <td>
+        <td data-label="Tema">{{ newRegister.topic }}</td>
+        <td data-label="Fecha inicio">{{ newRegister.start_date | addDay | date: 'dd/MM/yyyy' }}</td>
+        <td data-label="Fecha fin">{{ newRegister.end_date | addDay | date: 'dd/MM/yyyy' }}</td>
+        <td data-label="Nombre">
           {{ newRegister.name | slice:0:50 }}{{ newRegister.name.length > 50 ? '...' : '' }}
         </td>
-        <td>{{ newRegister.cedula }}</td>
-        <td>{{ newRegister.birthdate | addDay | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ newRegister.mail }}</td>
-        <td>
+        <td data-label="Identificación">{{ newRegister.cedula }}</td>
+        <td data-label="Nacimiento">{{ newRegister.birthdate | addDay | date: 'dd/MM/yyyy' }}</td>
+        <td data-label="Correo">{{ newRegister.mail }}</td>
+        <td data-label="Teléfono">
           {{ newRegister.fone | slice:0:30 }}{{ newRegister.fone.length > 30 ? '...' : '' }}
         </td>
-        <td>{{ newRegister.fecha_inscripcion | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
-        <td>
+        <td data-label="Inscripción">{{ newRegister.fecha_inscripcion | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td data-label="Acciones">
           <button (click)="deleteRegister(newRegister._id)">Borrar</button>
         </td>
       </tr>
@@ -45,3 +45,4 @@
 
   <button (click)="exportarExcel()">Exportar a Excel</button>
 </div>
+
