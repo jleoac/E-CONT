@@ -123,7 +123,7 @@ se ejecutarán estos estilos*/
 }
 
 /* Responsive movil */
-@media (min-width: 444px) {
+@media (max-width: 444px) {
   .contenedorPrincipal {
     position: fixed;
     top: 0;
