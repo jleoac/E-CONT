@@ -1326,23 +1326,32 @@ se ejecutarán estos estilos*/
   }
 
   td {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: flex-start; /* Justifica a la izquierda el contenido */
     font-size: 10px;
-    padding-left: 50%;
+    padding-left: 110px;
     position: relative;
     text-align: justify;
     border: none;
     border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+    min-height: 40px; /* Asegura suficiente altura */
   }
 
   td::before {
     content: attr(data-label);
     position: absolute;
+    align-items: center; /* Centra verticalmente */
     left: 10px;
-    top: 10px;
-    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical */
+    width: 90px;
     font-weight: bold;
     font-size: 10px;
     color: #333;
+    text-align: justify;
+    white-space: normal;
   }
 
 }
@@ -1385,41 +1394,4 @@ se ejecutarán estos estilos*/
   .block{
     padding: 1px;
   }
-
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-
-  thead {
-    display: none;
-  }
-
-  tr {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-  }
-
-  td {
-    font-size: 10px;
-    padding-left: 110px; /* Aumentado para dejar espacio a la etiqueta */
-    position: relative;
-    text-align: justify; /* Justifica el contenido del td */
-    border: none;
-    border-bottom: 1px solid #eee;
-    word-wrap: break-word;
-  }
-
-  td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 90px; /* Ancho fijo para que no invada el contenido */
-    white-space: normal;
-    font-weight: bold;
-    font-size: 10px;
-    color: #333;
-    text-align: left;
-  }
-
 }
