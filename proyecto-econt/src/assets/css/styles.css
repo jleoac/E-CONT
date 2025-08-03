@@ -1410,7 +1410,7 @@ se ejecutarán estos estilos*/
 
   .button {
     flex: 1 1 100%;
-    max-width: 100%;
+    max-width: 30%;
   }
 }
 
@@ -1610,6 +1610,13 @@ se ejecutarán estos estilos*/
 
   .block{
     padding: 1px;
+  }
+
+  .project-description,
+  .project-date,
+  .project-coach {
+    font-size: 10px;
+    color: #444;
   }
 
 }
