@@ -1327,7 +1327,7 @@ se ejecutarán estos estilos*/
 
   td {
     display: flow-root;
-    align-items: center; /* Centra verticalmente */
+    transform: translateY(-50%); /* Centra verticalmente */
     justify-content: flex-start; /* Justifica a la izquierda el contenido */
     font-size: 10px;
     padding-left: 110px;
