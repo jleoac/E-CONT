@@ -1327,6 +1327,25 @@ se ejecutarán estos estilos*/
     padding: 8px 12px;
   }
 
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-description,
+  .project-date,
+  .project-coach {
+    font-size: 1rem;
+  }
+
+  .project-actions,
+  .project-confirm-delete {
+    flex-direction: column;
+  }
+
 }
 
 /* Responsive pantalla pequeña */
@@ -1535,6 +1554,23 @@ se ejecutarán estos estilos*/
     white-space: normal;
   }
 
+  .registration-form input {
+    width: 47%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s;
+  }
+
+  form input[id="name"]{
+    width: 49%;
+    padding: 5px;
+  }
+
+  .btn-submit {
+    width: 49%;
+  }
 }
 
 /* Responsive movil */
@@ -1574,25 +1610,6 @@ se ejecutarán estos estilos*/
 
   .block{
     padding: 1px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .project-title {
-    font-size: 1.3rem;
-  }
-
-  .project-description,
-  .project-date,
-  .project-coach {
-    font-size: 1rem;
-  }
-
-  .project-actions,
-  .project-confirm-delete {
-    flex-direction: column;
   }
 
 }

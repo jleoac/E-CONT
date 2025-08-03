@@ -22,7 +22,7 @@
     </p>
 
     <div *ngIf="confirm === false" class="project-actions">
-      <a [routerLink]="['/capacitacion-editar', newProject._id]" class="button button-edit">Editar</a>
+      <a [routerLink]="['/capacitacion-editar', newProject._id]" (click)="scrollToTop()" class="button button-edit">Editar</a>
       <a [routerLink]="['/cursos-registro', newProject.topic, newProject.start_date, newProject.end_date, newProject.description, newProject.coach, newProject.image]" (click)="scrollToTop()" class="button button-preview">Revisar link público</a>
       <a (click)="setConfirm(true)" class="button button-delete">Borrar</a>
     </div>

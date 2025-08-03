@@ -1,28 +1,43 @@
-<div class="container" *ngIf="newNews">
-    <h2>Detalle y Edición de Noticias</h2>
-    <div class="image" *ngIf="newNews.image">
-        <img src="{{url+'get-image/'+newNews.image}}" *ngIf="newNews.image" />
+<div class="project-detail-container" *ngIf="newNews">
+  <h2 class="section-title">Detalle y Edición de Noticias</h2>
+
+  <div class="project-image" *ngIf="newNews.image">
+    <img [src]="url + 'get-image/' + newNews.image" [alt]="newNews.topic" />
+  </div>
+
+  <div class="project-info">
+    <h1 class="project-title">{{ newNews.date }}</h1>
+
+    <h3 class="project-description">
+      {{ newNews.topic | slice:0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}
+    </h3>
+
+    <h3 class="project-description">
+      {{ newNews.description | slice:0:50 }}{{ newNews.description.length > 50 ? '...' : '' }}
+    </h3>
+
+    <h3 class="project-date">
+      <strong>Fuente:</strong> {{ newNews.source | slice:0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}
+    </h3>
+
+    <p class="project-coach">
+      <strong>Autor:</strong> {{ newNews.author | slice:0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}
+    </p>
+
+    <p class="project-coach">
+      <strong>Link:</strong> {{ newNews.link | slice:0:30 }}{{ newNews.link.length > 30 ? '...' : '' }}
+    </p>
+
+    <div *ngIf="confirm === false" class="project-actions">
+      <a [routerLink]="['/noticias-editar', newNews._id]" (click)="scrollToTop()" class="button button-edit">Editar</a>
+      <a [routerLink]="['/noticias-lectura', newNews._id]" (click)="scrollToTop()" class="button button-preview">Revisar link público</a>
+      <a (click)="setConfirm(true)" class="button button-delete">Borrar</a>
     </div>
 
-    <div class="data">
-        <h1>{{newNews.date}}</h1>
-        <h3>{{newNews.topic | slice:0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}</h3>
-        <h3>{{newNews.description | slice:0:50 }}{{ newNews.description.length > 50 ? '...' : '' }}</h3>
-        <h3>{{newNews.source | slice:0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}</h3>
-        <p>{{newNews.author | slice:0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}</p>
-        <p>{{newNews.link | slice:0:30 }}{{ newNews.link.length > 30 ? '...' : '' }}</p>
-        
-        <p *ngIf="confirm == false">
-            <a [routerLink]="['/noticias-editar', newNews._id]" class="button-edit"  (click)="scrollToTop()">Editar</a>
-            <a [routerLink]="['/noticias-lectura', newNews._id]" class="button-edit"  (click)="scrollToTop()">Revisar link público</a>
-            <a (click)="setConfirm(true)" class="button-delete">Borrar</a>
-        </p>
-
-        <p *ngIf="confirm == true">
-            <span class="confirm">¿Estás seguro de eliminar este proyecto?</span>
-            <a (click)="setConfirm(false)" class="button-edit">Cancelar</a>
-            <a (click)="deleteNews(newNews._id)" class="button-delete">Eliminar definitivamente</a>
-        </p>
+    <div *ngIf="confirm === true" class="project-confirm-delete">
+      <p class="confirm-text">¿Estás seguro de eliminar esta noticia?</p>
+      <a (click)="setConfirm(false)" class="button button-cancel">Cancelar</a>
+      <a (click)="deleteNews(newNews._id)" class="button button-delete-confirm">Eliminar definitivamente</a>
     </div>
-
+  </div>
 </div>
