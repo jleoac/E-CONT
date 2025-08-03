@@ -7,14 +7,14 @@
   </div>
 </div>
 -->
-<div class="container">
+<div class="news-title">
     <h2>Estudio Ecónómico, Contable, y Tributario E-CONT</h2>
 </div>
 
 <!--Lo siguiente es para que aparezcan las noticias en la página inicial-->
 <!-- Si es pantalla ≤ 768px -->
 <div *ngIf="esMovil" class="news-container">
-  <h2 class="news-title">Últimas Noticias</h2>
+  <h2 class="container">Tu verdadero aliado</h2>
   <ul class="news-list">
     <li *ngFor="let newNews of news" class="news-item">
       <a [href]="newNews.link" class="news-link">
@@ -54,7 +54,7 @@
 <!-- Pestaña flotante visible en pantallas pequeñas -->
 <div class="pestana-toggle" (click)="togglePanel()">☰</div>
 
-<div class="contenedorPrincipal" [class.abierto]="panelAbierto">
+<div #panel class="contenedorPrincipal" [class.abierto]="panelAbierto">
   <div class="contenedorFormulario">
     <div class="pedidoDatosCliente">
       <div class="ingresoDatosCliente">

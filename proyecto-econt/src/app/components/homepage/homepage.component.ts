@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener} from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef} from '@angular/core';
 import { News } from 'src/app/models/news';
 import { NewsService } from 'src/app/services/news.service';
 import { Buzon } from 'src/app/models/buzon';
@@ -19,6 +19,8 @@ import { Nl2brPipe } from 'src/app/pipes/nl2br.pipe';
 export class HomepageComponent implements OnInit{
 
   esMovil: boolean = false;
+
+  @ViewChild('panel') panelRef!: ElementRef;
   panelAbierto = false;
 
   togglePanel() {
@@ -145,13 +147,18 @@ export class HomepageComponent implements OnInit{
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     const clickedElement = event.target as HTMLElement;
-    const headerElement = document.querySelector('header');
-    const isClickInsidePanel = headerElement?.contains(clickedElement);
 
-    if (!isClickInsidePanel && this.panelAbierto) {
+    if (
+      this.panelAbierto &&
+      this.panelRef &&
+      !this.panelRef.nativeElement.contains(clickedElement) &&
+      !clickedElement.classList.contains('pestana-toggle')
+    ) {
       this.panelAbierto = false;
+      console.log('Panel cerrado por clic fuera');
     }
   }
+
 
   @HostListener('window:resize', [])
   onResize() {
