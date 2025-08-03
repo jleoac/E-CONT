@@ -8,7 +8,7 @@ import { Global } from './services/global';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
+
   loading: boolean = false;
 
   title = 'proyecto-angular';

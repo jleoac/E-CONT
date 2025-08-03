@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, HostListener} from '@angular/core';
 import { News } from 'src/app/models/news';
 import { NewsService } from 'src/app/services/news.service';
 import { Buzon } from 'src/app/models/buzon';
@@ -18,7 +18,8 @@ import { Nl2brPipe } from 'src/app/pipes/nl2br.pipe';
 })
 export class HomepageComponent implements OnInit{
 
-  panelAbierto = false;
+  esMovil: boolean = false;
+  panelAbierto: boolean = false;
 
   togglePanel() {
     this.panelAbierto = !this.panelAbierto;
@@ -51,6 +52,7 @@ export class HomepageComponent implements OnInit{
     }
 
     ngOnInit(): void {
+      this.checkTamanioPantalla();
       this.getNewss();
       this._route.params.subscribe(params =>{
           let id = params['id'];
@@ -139,5 +141,25 @@ export class HomepageComponent implements OnInit{
         }
       );
     }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedElement = event.target as HTMLElement;
+    const headerElement = document.querySelector('header');
+    const isClickInsidePanel = headerElement?.contains(clickedElement);
+
+    if (!isClickInsidePanel && this.panelAbierto) {
+      this.panelAbierto = false;
+    }
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkTamanioPantalla();
+  }
+
+  checkTamanioPantalla() {
+    this.esMovil = window.innerWidth <= 768;
+  }
 }
 
