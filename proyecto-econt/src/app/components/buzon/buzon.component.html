@@ -7,30 +7,31 @@
   </article>
 
   <table>
-  <thead>
-    <tr>
+    <thead>
+      <tr>
         <th>Fecha y hora de mensaje</th>
         <th>Nombres y Apellidos</th>
         <th>Correo Electrónico</th>
         <th>Número Telefónico</th>
         <th>Mensaje</th>
-        <th>Acciones</th> <!-- NUEVA COLUMNA -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let newBuzon of buzon" class="buzon">
-        <td>{{ newBuzon.fecha_mensaje | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
-        <td>{{ newBuzon.name }}</td>
-        <td>{{ newBuzon.mail }}</td>
-        <td>{{ newBuzon.fone }}</td>
-        <td>
-            {{ newBuzon.mensaje | slice:0:1000 }}{{ newBuzon.mensaje.length > 1000 ? '...' : '' }}
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let newBuzon of buzon" class="buzon">
+        <td data-label="Fecha y hora">{{ newBuzon.fecha_mensaje | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td data-label="Nombres">{{ newBuzon.name }}</td>
+        <td data-label="Correo">{{ newBuzon.mail }}</td>
+        <td data-label="Teléfono">{{ newBuzon.fone }}</td>
+        <td data-label="Mensaje">
+          {{ newBuzon.mensaje | slice:0:1000 }}{{ newBuzon.mensaje.length > 1000 ? '...' : '' }}
         </td>
-        <td>
-            <button (click)="deleteBuzon(newBuzon._id)">Borrar</button>
+        <td data-label="Acciones">
+          <button (click)="deleteBuzon(newBuzon._id)">Borrar</button>
         </td>
-    </tr>
-  </tbody>
+      </tr>
+    </tbody>
   </table>
+
   <button (click)="exportarExcel()">Exportar a Excel</button>
 </div>

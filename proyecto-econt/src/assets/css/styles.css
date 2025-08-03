@@ -1327,7 +1327,7 @@ se ejecutarán estos estilos*/
 
   td {
     display: flow-root;
-    transform: translateY(-50%); /* Centra verticalmente */
+    align-items: center; /* Centra verticalmente */
     justify-content: flex-start; /* Justifica a la izquierda el contenido */
     font-size: 10px;
     padding-left: 110px;
@@ -1337,6 +1337,7 @@ se ejecutarán estos estilos*/
     border-bottom: 1px solid #eee;
     word-wrap: break-word;
     min-height: 24px; /* Asegura suficiente altura */
+    margin-top: 10px;
   }
 
   td::before {
