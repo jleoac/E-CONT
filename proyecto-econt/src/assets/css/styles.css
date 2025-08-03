@@ -1311,7 +1311,7 @@ se ejecutarán estos estilos*/
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
-    vertical-align: middle; /* <- Este es el cambio */
+    vertical-align: top; /* <- Este es el cambio */
   }
 
   table, thead, tbody, th, td, tr {
