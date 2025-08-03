@@ -19,7 +19,7 @@ import { Nl2brPipe } from 'src/app/pipes/nl2br.pipe';
 export class HomepageComponent implements OnInit{
 
   esMovil: boolean = false;
-  panelAbierto: boolean = false;
+  panelAbierto = false;
 
   togglePanel() {
     this.panelAbierto = !this.panelAbierto;
@@ -159,7 +159,7 @@ export class HomepageComponent implements OnInit{
   }
 
   checkTamanioPantalla() {
-    this.esMovil = window.innerWidth <= 768;
+    this.esMovil = window.innerWidth <= 780;
   }
 }
 

@@ -1217,7 +1217,7 @@ se ejecutarán estos estilos*/
 
 
 /* Responsive móvil */
-@media (max-width: 768px) {
+@media (max-width: 780px) {
   header ul {
     flex-direction: column;
     align-items: flex-start;
