@@ -658,7 +658,7 @@ button:hover {
 .registration-wrapper {
   max-width: 960px;
   margin: auto;
-  padding: 1rem;
+  padding: 10px;
   background-color: #ffffffdd;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
