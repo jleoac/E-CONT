@@ -323,7 +323,7 @@ form label{
 }
 
 form input[id="name"]{
-    width: 70%;
+    width: 60%;
     padding: 5px;
 }
 
@@ -595,11 +595,13 @@ button:hover {
 
 .book-page {
   max-width: 800px;
+  width: 80%; /* Ajusta el ancho relativo */
   background: rgba(255, 255, 255, 0.8);
-  padding: 3rem;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   line-height: 1.8;
   border-radius: 10px;
+  margin: 2rem auto; /* Centrado horizontal */
 }
 
 .news-title-1 {
@@ -715,7 +717,7 @@ button:hover {
 }
 
 .registration-form input {
-  width: 68%;
+  width: 60%;
   padding: 0.6rem;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -735,7 +737,7 @@ button:hover {
 }
 
 .btn-submit {
-  width: 70%;
+  width: 60%;
   padding: 0.75rem;
   background-color: #3498db;
   color: white;
@@ -1571,6 +1573,11 @@ se ejecutarán estos estilos*/
   .btn-submit {
     width: 49%;
   }
+
+  .book-page {
+    padding: 1rem;
+  }
+  
 }
 
 /* Responsive movil */
