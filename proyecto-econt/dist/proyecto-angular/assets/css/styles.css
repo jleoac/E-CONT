@@ -1326,7 +1326,7 @@ se ejecutarán estos estilos*/
   }
 
   td {
-    display: flex;
+    display: flow-root;
     align-items: center; /* Centra verticalmente */
     justify-content: flex-start; /* Justifica a la izquierda el contenido */
     font-size: 10px;
@@ -1336,7 +1336,7 @@ se ejecutarán estos estilos*/
     border: none;
     border-bottom: 1px solid #eee;
     word-wrap: break-word;
-    min-height: 27px; /* Asegura suficiente altura */
+    min-height: 24px; /* Asegura suficiente altura */
   }
 
   td::before {
