@@ -1,19 +1,41 @@
-<div class="container">
-    <h2>Noticias</h2>
-    <ul>
-        <li *ngFor="let newNews of news" class="project">
-            <a [routerLink]="['/noticias-detalle', newNews._id]"  (click)="scrollToTop()">
-                <div class="image">
-                    <img src="{{url_1+'get-image/'+newNews.image}}" *ngIf="newNews.image" />
-                </div>
+<div class="news-container">
+  <h2 class="news-title">Noticias</h2>
 
-                <h3>{{newNews.date}}</h3>
-                <p>{{newNews.topic | slice:0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}</p>
-                <p>{{newNews.description | slice:0:40 }}{{ newNews.description.length > 40 ? '...' : '' }}</p>
-                <p>{{newNews.source | slice:0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}</p>
-                <p>{{newNews.author | slice:0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}</p>
-                <p>{{newNews.link | slice:0:30 }}</p>
-            </a>
-        </li>
-    </ul>
+  <ul class="news-list">
+    <li *ngFor="let newNews of news" class="news-item">
+      <a 
+        [routerLink]="['/noticias-detalle', newNews._id]" 
+        (click)="scrollToTop()" 
+        class="news-link"
+      >
+        <div class="news-image" *ngIf="newNews.image">
+          <img 
+            [src]="url_1 + 'get-image/' + newNews.image" 
+            [alt]="newNews.topic" 
+          />
+        </div>
+
+        <div class="news-content">
+          <h3 class="news-date">{{ newNews.date }}</h3>
+          <h4 class="news-topic">
+            {{ newNews.topic | slice: 0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}
+          </h4>
+          <p class="news-description">
+            {{ newNews.description | slice: 0:50 }}{{ newNews.description.length > 50 ? '...' : '' }}
+          </p>
+          <p class="news-meta">
+            <span class="news-source">
+              {{ newNews.source | slice: 0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}
+            </span> |
+            <span class="news-author">
+              {{ newNews.author | slice: 0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}
+            </span>
+          </p>
+          <p class="news-link-url">
+            {{ newNews.link | slice: 0:30 }}
+          </p>
+        </div>
+      </a>
+    </li>
+  </ul>
 </div>
