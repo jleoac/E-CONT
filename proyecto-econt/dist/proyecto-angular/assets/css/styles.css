@@ -595,9 +595,9 @@ button:hover {
 
 .book-page {
   max-width: 800px;
-  width: 80%; /* Ajusta el ancho relativo */
+  width: 93%; /* Ajusta el ancho relativo */
   background: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   line-height: 1.8;
   border-radius: 10px;
@@ -617,7 +617,8 @@ button:hover {
   margin: 0 auto 2rem auto;
   border-radius: 5px;
   width: 700px;
-  height: 350px;
+  height: auto;
+  max-height: 350px;
 }
 
 .news-date-1 {
@@ -657,7 +658,7 @@ button:hover {
 .registration-wrapper {
   max-width: 960px;
   margin: auto;
-  padding: 2rem;
+  padding: 1rem;
   background-color: #ffffffdd;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -1577,7 +1578,7 @@ se ejecutarán estos estilos*/
   .book-page {
     padding: 1rem;
   }
-  
+
 }
 
 /* Responsive movil */
@@ -1624,6 +1625,13 @@ se ejecutarán estos estilos*/
   .project-coach {
     font-size: 10px;
     color: #444;
+  }
+
+  .news-source-1,
+  .news-author-1 {
+    font-size: 12px;
+    margin-top: 1rem;
+    color: #555;
   }
 
 }
