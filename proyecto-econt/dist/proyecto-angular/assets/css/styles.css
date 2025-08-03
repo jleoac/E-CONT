@@ -1203,7 +1203,7 @@ button:hover {
   text-align: center;
   font-weight: 600;
   transition: all 0.3s ease;
-  min-width: 150px;
+  max-width: 30%;
 }
 
 .button-edit {
@@ -1555,7 +1555,7 @@ se ejecutarán estos estilos*/
   }
 
   .registration-form input {
-    width: 47%;
+    width: 44%;
     padding: 0.6rem;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -1564,7 +1564,7 @@ se ejecutarán estos estilos*/
   }
 
   form input[id="name"]{
-    width: 49%;
+    width: 45%;
     padding: 5px;
   }
 
