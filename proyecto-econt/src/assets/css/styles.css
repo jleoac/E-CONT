@@ -1429,6 +1429,7 @@ se ejecutarán estos estilos*/
   }
 
   .dropdown-content {
+    display: none;
     position: static;
     box-shadow: none;
     border-radius: 0;

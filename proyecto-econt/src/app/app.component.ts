@@ -48,6 +48,10 @@ export class AppComponent implements OnInit {
   cerrarMenuYScroll() {
     this.scrollToTop();
     this.menuAbierto = false;
+    // Cerrar cualquier submenú abierto
+    document.querySelectorAll('.dropdown-content.show').forEach(el => {
+      el.classList.remove('show');
+    });
   }
 
   ngOnInit(): void {
@@ -135,6 +139,27 @@ export class AppComponent implements OnInit {
 
     if (!isClickInsideMenu && this.menuAbierto) {
       this.menuAbierto = false;
+      // Cierra submenús
+      document.querySelectorAll('.dropdown-content.show').forEach(el => {
+        el.classList.remove('show');
+      });
     }
   }
+
+  toggleDropdown(event: Event): void {
+    event.stopPropagation(); // Evita que el click cierre el menú por el @HostListener
+    const target = event.target as HTMLElement;
+    const dropdown = target.nextElementSibling as HTMLElement;
+
+    // Cerrar todos los demás dropdowns
+    document.querySelectorAll('.dropdown-content.show').forEach(el => {
+      if (el !== dropdown) {
+        el.classList.remove('show');
+      }
+    });
+
+    // Alternar el actual
+    dropdown?.classList.toggle('show');
+  }
+
 }

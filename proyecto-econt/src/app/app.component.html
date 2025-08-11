@@ -32,13 +32,13 @@
     <li id="logo"><a [routerLink]="['/homepage']" (click)="scrollToTop(); goHome(); menuAbierto = false">E-CONT</a></li>
 
     <li class="dropdown">
-      <a class="dropdown-toggle">Administración</a>
+      <a class="dropdown-toggle" (click)="toggleDropdown($event)">Administración</a>
       <ul class="dropdown-content">
         <li><a [routerLink]="['/login-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear usuario</a></li>
         <li><a [routerLink]="['/login-editar']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar usuarios</a></li>
       </ul>
     </li><li class="dropdown">
-      <a class="dropdown-toggle">Capacitaciones</a>
+      <a class="dropdown-toggle" (click)="toggleDropdown($event)">Capacitaciones</a>
       <ul class="dropdown-content">
         <li><a [routerLink]="['/capacitacion-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Capacitaciones</a></li>
         <li><a [routerLink]="['/capacitacion-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Capacitaciones</a></li>
@@ -46,7 +46,7 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a class="dropdown-toggle">Noticias</a>
+      <a class="dropdown-toggle" (click)="toggleDropdown($event)">Noticias</a>
       <ul class="dropdown-content">
         <li><a [routerLink]="['/noticias-crear']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Crear Noticias</a></li>
         <li><a [routerLink]="['/noticias-listado']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Listar Noticias</a></li>
@@ -54,7 +54,7 @@
     </li>
     <li><a [routerLink]="['/buzon']" [routerLinkActive]="['actived']" (click)="cerrarMenuYScroll()">Buzón</a></li>
     <li class="dropdown" *ngIf="adminLogged?.image">
-      <a class="dropdown-toggle">
+      <a class="dropdown-toggle" (click)="toggleDropdown($event)">
         <img [src]="getAdminImageUrl()" alt="Perfil" class="admin-profile-image" title="{{ adminLogged?.email }}" />
       </a>
       <ul class="dropdown-content">
