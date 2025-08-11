@@ -1,11 +1,6 @@
 //Fichero de ruta del controlador project.js
 'use strict'
 
-const multer = require('multer');
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
-
-
 var express = require('express');
 var ProjectController = require('../controllers/project');
 //Lo siguiente es para que se pueda subir un archivo a la base de datos de mongo
@@ -28,7 +23,7 @@ router.put('/project/:id', ProjectController.updateProject);
 
 router.delete('/project/:id', ProjectController.deleteProject);
 
-router.post('/upload-image/:id', upload.single('image'), ProjectController.uploadImage);
+router.post('/upload-image/:id', multipartMiddleware, ProjectController.uploadImage);
 
 router.get('/get-image/:image', ProjectController.getImageFile);
 
