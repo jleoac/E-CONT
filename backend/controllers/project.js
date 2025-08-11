@@ -10,6 +10,10 @@ Nota: puede funcionar sin internet*/
 
 'use strict'
 
+const cloudinary = require('../cloudinaryConfig');
+const multer = require('multer');
+const upload = multer({ dest: 'temp/' }); // carpeta temporal
+
 const { urlencoded } = require('body-parser');
 var Project = require('../models/project');
 var fs = require('fs');
@@ -103,36 +107,33 @@ var controller = {
         });
     },
 
-    uploadImage: function(req, res){
+    uploadImage: async function (req, res) {
         var projectId = req.params.id;
 
-        var fileName = 'Imágen no subida...';
+        if (!req.file) {
+            return res.status(400).send({ message: 'No se envió ninguna imagen' });
+        }
 
-        if(req.files){
-            var filePath = req.files.image.path;
-            var fileName = path.basename(filePath); // ✅ obtiene solo el nombre del archivo
-            var fileExt = path.extname(fileName).toLowerCase().replace('.', ''); // ✅ "jpg", "png", etc.
-
-            if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif'){
-                Project.findByIdAndUpdate(projectId, {image: fileName}, {new: true}, (err, projectUpdated) => {
-                    if(err) return res.status(500).send({message: 'La imagen no se ha subido...'});
-    
-                    if(!projectUpdated) return res.status(404).send({message: 'El proyecto no existe y no se ha asignado la imágen...'});
-    
-                    return res.status(200).send({
-                        newProject: projectUpdated
-                    });
-                });
-            } else {
-                fs.unlink(filePath, (err) => {
-                    return res.status(200).send({message: 'La extensión no es válida'});
-                });
-            }
-            
-        } else{
-            return res.status(200).send({
-                message: fileName
+        try {
+            // Subir imagen a Cloudinary
+            const result = await cloudinary.uploader.upload(req.file.path, {
+                folder: 'capacitaciones'
             });
+
+            // Guardar URL de Cloudinary en MongoDB
+            const projectUpdated = await Project.findByIdAndUpdate(
+                projectId,
+                { image: result.secure_url },
+                { new: true }
+            );
+
+            if (!projectUpdated) {
+                return res.status(404).send({ message: 'El proyecto no existe' });
+            }
+
+            return res.status(200).send({ newProject: projectUpdated });
+        } catch (err) {
+            return res.status(500).send({ message: 'Error al subir imagen', error: err });
         }
     },
 

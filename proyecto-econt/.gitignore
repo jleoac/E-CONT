@@ -20,7 +20,7 @@ yarn-error.log
 *.sublime-workspace
 
 # Ignorar archivos de entorno
-.env
+backend/.env
 
 # Ignorar solo para pruebas
 test.js
