@@ -1,6 +1,11 @@
 //Fichero de ruta del controlador project.js
 'use strict'
 
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+
 var express = require('express');
 var ProjectController = require('../controllers/project');
 //Lo siguiente es para que se pueda subir un archivo a la base de datos de mongo
