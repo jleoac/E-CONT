@@ -48,10 +48,6 @@ export class AppComponent implements OnInit {
   cerrarMenuYScroll() {
     this.scrollToTop();
     this.menuAbierto = false;
-    // Cerrar cualquier submenú abierto
-    document.querySelectorAll('.dropdown-content.show').forEach(el => {
-      el.classList.remove('show');
-    });
   }
 
   ngOnInit(): void {
@@ -131,19 +127,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  @HostListener('window:orientationchange')
-  onOrientationChange(): void {
-    this.cerrarMenuYScroll();
-  }
-
-  @HostListener('window:resize')
-  onResize(): void {
-  // Esto ayuda en navegadores que no disparan orientationchange
-    if (window.innerWidth > window.innerHeight) {
-      this.cerrarMenuYScroll();
-    }
-  }
-
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     const clickedElement = event.target as HTMLElement;
@@ -151,8 +134,7 @@ export class AppComponent implements OnInit {
     const isClickInsideMenu = headerElement?.contains(clickedElement);
 
     if (!isClickInsideMenu && this.menuAbierto) {
-      this.menuAbierto = false;
-      
+      this.menuAbierto = false;   
     }
   }
 

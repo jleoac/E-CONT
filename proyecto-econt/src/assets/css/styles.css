@@ -1430,7 +1430,7 @@ se ejecutarán estos estilos*/
 
   .dropdown-content {
     display: none;
-    position: static;
+    position: absolute;
     box-shadow: none;
     border-radius: 0;
     width: 100%;
