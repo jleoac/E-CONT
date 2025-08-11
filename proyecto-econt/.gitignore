@@ -21,6 +21,7 @@ yarn-error.log
 
 # Ignorar archivos de entorno
 backend/.env
+backend/node_modules
 
 # Ignorar solo para pruebas
 test.js
