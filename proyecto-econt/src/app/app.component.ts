@@ -131,6 +131,19 @@ export class AppComponent implements OnInit {
     }
   }
 
+  @HostListener('window:orientationchange')
+  onOrientationChange(): void {
+    this.cerrarMenuYScroll();
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+  // Esto ayuda en navegadores que no disparan orientationchange
+    if (window.innerWidth > window.innerHeight) {
+      this.cerrarMenuYScroll();
+    }
+  }
+
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     const clickedElement = event.target as HTMLElement;
@@ -139,27 +152,8 @@ export class AppComponent implements OnInit {
 
     if (!isClickInsideMenu && this.menuAbierto) {
       this.menuAbierto = false;
-      // Cierra submenús
-      document.querySelectorAll('.dropdown-content.show').forEach(el => {
-        el.classList.remove('show');
-      });
+      
     }
-  }
-
-  toggleDropdown(event: Event): void {
-    event.stopPropagation(); // Evita que el click cierre el menú por el @HostListener
-    const target = event.target as HTMLElement;
-    const dropdown = target.nextElementSibling as HTMLElement;
-
-    // Cerrar todos los demás dropdowns
-    document.querySelectorAll('.dropdown-content.show').forEach(el => {
-      if (el !== dropdown) {
-        el.classList.remove('show');
-      }
-    });
-
-    // Alternar el actual
-    dropdown?.classList.toggle('show');
   }
 
 }
