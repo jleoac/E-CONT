@@ -1653,11 +1653,4 @@ se ejecutarán estos estilos*/
     margin-top: 10px; /* separación respecto a la imagen */
   }
 
-  .news-image {
-    width: 150px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
 }
