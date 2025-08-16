@@ -594,8 +594,8 @@ button:hover {
 }
 
 .book-page {
-  max-width: 800px;
-  width: 93%; /* Ajusta el ancho relativo */
+  max-width: 100%;
+  width: 100%; /* Ajusta el ancho relativo */
   background: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
