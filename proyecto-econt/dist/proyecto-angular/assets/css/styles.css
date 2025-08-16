@@ -1635,4 +1635,11 @@ se ejecutarán estos estilos*/
     color: #555;
   }
 
+  .news-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
 }
