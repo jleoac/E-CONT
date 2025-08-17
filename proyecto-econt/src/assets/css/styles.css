@@ -576,7 +576,7 @@ button:hover {
 .news-description {
   font-size: 1rem;
   color: inherit;
-  margin: 5px 10px 10px -165px ;
+  margin: 0px;
   text-align: left;
   white-space: normal;
   word-wrap: break-word;
@@ -586,7 +586,7 @@ button:hover {
 .news-meta {
   font-size: 0.85rem;
   color: inherit;
-  margin: 5px 10px 10px -165px;
+  margin: 0px;
 }
 
 /*Sección lectura noticias*/
@@ -1638,6 +1638,22 @@ se ejecutarán estos estilos*/
     font-size: 12px;
     margin-top: 1rem;
     color: #555;
+  }
+
+  .news-description {
+    font-size: 1rem;
+    color: inherit;
+    margin: 23px 10px 10px -165px ;
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-right: 10px;
+  }
+
+  .news-meta {
+    font-size: 0.85rem;
+    color: inherit;
+    margin: 5px 10px 10px -165px;
   }
 
 }
