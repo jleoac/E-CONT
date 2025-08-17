@@ -568,15 +568,19 @@ button:hover {
 }
 
 .news-topic {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin: 5px 0;
+  margin: 7px 0;
 }
 
 .news-description {
   font-size: 1rem;
   color: inherit;
-  margin: 5px 0 10px;
+  margin: 5px -171px 10px;
+  text-align: justify;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-right: 10px;
 }
 
 .news-meta {
@@ -606,7 +610,7 @@ button:hover {
 
 .news-title-1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: #5a3e2b;
 }
@@ -636,7 +640,7 @@ button:hover {
 
 .news-description-1 {
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   margin-bottom: 1.5rem;
   text-align: justify;
 }
