@@ -576,8 +576,8 @@ button:hover {
 .news-description {
   font-size: 1rem;
   color: inherit;
-  margin: 5px -171px 10px;
-  text-align: justify;
+  margin: 5px 10px 10px -205px ;
+  text-align: left;
   white-space: normal;
   word-wrap: break-word;
   margin-right: 10px;
@@ -586,6 +586,7 @@ button:hover {
 .news-meta {
   font-size: 0.85rem;
   color: inherit;
+  margin: 5px 10px 10px -205px;
 }
 
 /*Sección lectura noticias*/
