@@ -24,17 +24,17 @@
         <div class="news-content">
           <h3 class="news-date">{{ newNews.date }}</h3>
           <h4 class="news-topic">
-            {{ newNews.topic | slice: 0:33 }}{{ newNews.topic.length > 30 ? '...' : '' }}
+            {{ newNews.topic | slice: 0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}
           </h4>
-          <p class="news-description">
-            {{ newNews.description | slice: 0:50 }}{{ newNews.description.length > 50 ? '...' : '' }}
+          <p class="news-description" [innerHTML]="newNews.description | nl2br">
+            {{ newNews.description | slice: 0:70 }}{{ newNews.description.length > 70 ? '...' : '' }}
           </p>
           <p class="news-meta">
             <span class="news-source">
-              {{ newNews.source | slice: 0:33 }}{{ newNews.source.length > 30 ? '...' : '' }}
+              {{ newNews.source | slice: 0:30 }}{{ newNews.source.length > 30 ? '...' : '' }}
             </span> |
             <span class="news-author">
-              {{ newNews.author | slice: 0:33 }}{{ newNews.author.length > 30 ? '...' : '' }}
+              {{ newNews.author | slice: 0:30 }}{{ newNews.author.length > 30 ? '...' : '' }}
             </span>
           </p>
         </div>
