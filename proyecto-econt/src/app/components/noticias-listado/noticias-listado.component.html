@@ -20,7 +20,7 @@
           <h4 class="news-topic">
             {{ newNews.topic | slice: 0:30 }}{{ newNews.topic.length > 30 ? '...' : '' }}
           </h4>
-          <p class="news-description" [innerHTML]="newNews.description | nl2br">
+          <p class="news-description">
             {{ newNews.description | slice: 0:70 }}{{ newNews.description.length > 70 ? '...' : '' }}
           </p>
           <p class="news-meta">
