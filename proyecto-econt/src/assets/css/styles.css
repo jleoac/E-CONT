@@ -898,6 +898,10 @@ button:hover {
   border-left: 5px solid #0077cc;
 }
 
+#center-block {
+  border-left: 5px solid rgba(255, 104, 8, 0.8);
+}
+
 #right-block {
   border-left: 5px solid #28a745;
 }

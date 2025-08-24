@@ -33,6 +33,7 @@ import { ServiciosMipymesComponent } from './components/servicios-mipymes/servic
 import { LoginCrearComponent } from './components/login-crear/login-crear.component';
 import { LoginEditarComponent } from './components/login-editar/login-editar.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ServiciosGeneralesComponent } from './components/servicios-generales/servicios-generales.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ServiciosMipymesComponent,
     LoginCrearComponent,
     LoginEditarComponent,
-    LoaderComponent
+    LoaderComponent,
+    ServiciosGeneralesComponent
   ],
   imports: [
     BrowserModule,
