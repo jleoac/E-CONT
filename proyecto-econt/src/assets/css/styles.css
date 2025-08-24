@@ -1275,7 +1275,12 @@ button:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 20px;
   margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   transition: transform 0.2s;
+  color: #555;
 }
 
 .service:hover {
@@ -1283,6 +1288,22 @@ button:hover {
 }
 
 .service p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.service img {
+  max-width: 200px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.service-content {
+  flex: 1;
+  text-align: left;
+}
+
+.service-content p {
   font-size: 1rem;
   margin-bottom: 15px;
 }
@@ -1695,6 +1716,21 @@ se ejecutarán estos estilos*/
 
   .service p {
     font-size: 0.95rem;
+    color: #555;
+  }
+
+  .service {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service img {
+    margin: 0 0 15px 0;
+    max-width: 100%;
+  }
+
+  .service-content {
+    text-align: center;
   }
 
   .btn-whatsapp {
