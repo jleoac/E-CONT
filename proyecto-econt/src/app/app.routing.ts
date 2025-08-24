@@ -25,6 +25,7 @@ import { BuzonComponent } from "./components/buzon/buzon.component";
 import { ServiciosComponent } from "./components/servicios/servicios.component";
 import { ServiciosEmprendedoresComponent } from "./components/servicios-emprendedores/servicios-emprendedores.component";
 import { ServiciosMipymesComponent } from "./components/servicios-mipymes/servicios-mipymes.component";
+import { ServiciosGeneralesComponent } from "./components/servicios-generales/servicios-generales.component";
 
 //Estas rutas van como parte de la url dentro del link:
 const appRoutes: Routes = [
@@ -53,6 +54,7 @@ const appRoutes: Routes = [
     {path: 'servicios', component: ServiciosComponent},
     {path: 'servicios-emprendedores', component: ServiciosEmprendedoresComponent},
     {path: 'servicios-mipymes', component: ServiciosMipymesComponent},
+    {path: 'servicios-generales', component: ServiciosGeneralesComponent},
     {path: '**', component: ErrorComponent}
     
 ];
