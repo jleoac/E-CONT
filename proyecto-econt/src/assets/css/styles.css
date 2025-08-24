@@ -1269,6 +1269,39 @@ button:hover {
   font-size: 1.05rem;
 }
 
+.service {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 15px 0;
+  transition: transform 0.2s;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+}
+
+.service p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebd5a;
+}
 
 /*RESPONSIVE*/
 
@@ -1658,6 +1691,14 @@ se ejecutarán estos estilos*/
     font-size: 0.85rem;
     color: inherit;
     margin: 5px 10px 10px -165px;
+  }
+
+  .service p {
+    font-size: 0.95rem;
+  }
+
+  .btn-whatsapp {
+    width: 100%;
   }
 
 }
