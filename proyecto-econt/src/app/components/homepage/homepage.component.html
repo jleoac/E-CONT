@@ -14,7 +14,7 @@
 <!--Lo siguiente es para que aparezcan las noticias en la página inicial-->
 <!-- Si es pantalla ≤ 768px -->
 <div *ngIf="esMovil" class="news-container">
-  <h2 class="container">Creciendo contigo</h2>
+  <h2 class="container">Creciendo juntos</h2>
   <ul class="news-list">
     <li *ngFor="let newNews of news" class="news-item">
       <a [href]="newNews.link" class="news-link">

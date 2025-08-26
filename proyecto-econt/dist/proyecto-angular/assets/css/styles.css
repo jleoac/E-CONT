@@ -916,6 +916,7 @@ button:hover {
   color: #555;
   font-size: 16px;
   margin: revert;
+  text-align: justify;
 }
 
 .contenedores {
